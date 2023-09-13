@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background_workout">
+
+    <TextView
+        android:id="@+id/appTitle_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="GainzRUs"
+        android:textColor="#3944bc"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ems="12"
+        android:gravity="center"
+        android:text="Today: Mon. 09/10"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/workoutType_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_text_view"
+        android:layout_centerInParent="true"
+        android:ems="12"
+        android:gravity="center"
+        android:text="Pull: Back and Biceps"
+        android:textColor="#000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tapAnywhere_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:text="Tap anywhere to continue"
+        android:textColor="#3944bc"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/userIcon_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_homepage_user"
+        />
+
+    <ImageView
+        android:id="@+id/settingsIcon_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_homepage_settings" />
+
+
+</RelativeLayout>
