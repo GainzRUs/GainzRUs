@@ -39,17 +39,31 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
+<!--    <Button-->
+<!--        android:id="@+id/tapHere_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="150dp"-->
+<!--        android:backgroundTint="#fff"-->
+<!--        android:text="Tap here to continue"-->
+<!--        android:textColor="#3944bc"-->
+<!--        android:textSize="28sp"-->
+<!--        android:textStyle="bold" />-->
+
     <Button
-        android:id="@+id/tapHere_button"
+        android:id="@+id/pastWorkouts_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="130dp"
         android:backgroundTint="#fff"
-        android:text="Tap here to continue"
+        android:onClick="onClickViewWorkout"
+        android:text="View workout history"
         android:textColor="#3944bc"
-        android:textSize="28sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <ImageView
