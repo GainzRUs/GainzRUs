@@ -1,24 +1,34 @@
 package com.marke.gainzrus;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 public class User {
-    public class Dish {
 
         String userName, userAge, userWeight;
-        String exercise, reps, sets;
-        int price;
 
+        // constructor
+//        User(String userName, String userAge, String userWeight){
+//            this.userName = userName;
+//            this.userAge = userAge;
+//            this.userWeight = userWeight;
+//        }
 
-        void User(String title, String describe, int price){
-            this.title = title;
-            this.describe = describe;
-            this.price = price;
-        }
+        User(){}
 
+        // to display user's name
         @Override
         public String toString() {
-            return title;
+            return userName;
         }
-    }
 
-
+//    public static void setUsername(Context context, String username) {
+//        SharedPreferences prefs = context.getSharedPreferences("myAppPackage", 0);
+//        SharedPreferences.Editor editor = prefs.edit();
+//        editor.putString("username", username);
+//        editor.commit();
+//    }
 }
+
+
+

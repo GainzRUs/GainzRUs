@@ -25,4 +25,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, WorkoutHistory.class);
             startActivity(intent);
         }
+
+        public void onClickUserProfile(View view)
+        {
+            Intent intent = new Intent(MainActivity.this, ProfileSetup.class);
+            startActivity(intent);
+        }
 }
