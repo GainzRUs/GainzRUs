@@ -1,11 +1,11 @@
 package com.marke.gainzrus;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.content.Intent;
 import android.view.View;
-import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Toast;
 
 
@@ -21,9 +21,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    // The click handler method defined in the XML layout
+
+        // The click handler method defined in the XML layout
+        public void onClickViewWorkout(View view) {
+            Intent intent = new Intent(MainActivity.this, WorkoutHistory.class);
+            startActivity(intent);
+        }
+
+        public void onClickUserProfile(View view)
+        {
+            Intent intent = new Intent(MainActivity.this, ProfileSetup.class);
+            startActivity(intent);
+        }
+
     public void onAddExerciseClick(View view) {
         Intent intent = new Intent(MainActivity.this, AddExercise.class);
         startActivity(intent);
     }
+
 }
