@@ -21,13 +21,6 @@ public class User {
         public String toString() {
             return userName;
         }
-
-//    public static void setUsername(Context context, String username) {
-//        SharedPreferences prefs = context.getSharedPreferences("myAppPackage", 0);
-//        SharedPreferences.Editor editor = prefs.edit();
-//        editor.putString("username", username);
-//        editor.commit();
-//    }
 }
 
 

@@ -39,19 +39,6 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <!--    <Button-->
-    <!--        android:id="@+id/tapHere_button"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        android:layout_centerHorizontal="true"-->
-    <!--        android:layout_marginBottom="150dp"-->
-    <!--        android:backgroundTint="#fff"-->
-    <!--        android:text="Tap here to continue"-->
-    <!--        android:textColor="#3944bc"-->
-    <!--        android:textSize="28sp"-->
-    <!--        android:textStyle="bold" />-->
-
     <Button
         android:id="@+id/pastWorkouts_button"
         android:layout_width="wrap_content"
@@ -76,14 +63,6 @@
         android:onClick="onClickUserProfile"
         android:text="."
         android:textColor="@color/white" />
-
-<!--    <ImageView-->
-<!--        android:id="@+id/userIcon_image_view"-->
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:background="@drawable/ic_homepage_user" />-->
 
     <ImageView
         android:id="@+id/settingsIcon_image_view"
