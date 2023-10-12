@@ -16,10 +16,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="629dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="103dp"
+        android:layout_marginBottom="626dp"
         android:ems="10"
         android:inputType="text"
         android:text="@string/app_name" />
@@ -49,4 +49,5 @@
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="341dp"
         android:text="Button" />
+
 </RelativeLayout>
