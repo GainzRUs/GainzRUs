@@ -24,7 +24,7 @@ public class WorkoutHistory extends AppCompatActivity {
             };
 
     // initialize array adapter
-    ArrayAdapter<UserWorkout> workoutsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, workouts);
+    ArrayAdapter<UserWorkout> workoutsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, workouts);
     workoutList.setAdapter(workoutsAdapter);
 
     }
