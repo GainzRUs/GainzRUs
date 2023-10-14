@@ -1,18 +1,18 @@
 package com.marke.gainzrus;
 
+import java.util.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.content.Intent;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         // hide app title
@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
-        // The click handler method defined in the XML layout
+    // The click handler method defined in the XML layout
         public void onClickViewWorkout(View view) {
             Intent intent = new Intent(MainActivity.this, WorkoutHistory.class);
             startActivity(intent);
