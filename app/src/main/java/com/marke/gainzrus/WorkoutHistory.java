@@ -28,6 +28,8 @@ public class WorkoutHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_history);
 
+        getSupportActionBar().setTitle("Workout History");
+
         createMonthList();
         createCollection();
         expandableListView = findViewById(R.id.expandable_list_view_workouts);
