@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/YourBMIis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/WeightInput"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:text="Your BMI is:"
+        android:layout_editor_absoluteX="600dp"
+        android:layout_editor_absoluteY="600dp" />
+
+    <EditText
+        android:id="@+id/BMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/YourBMIis"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:inputType="numberDecimal"
+        android:layout_editor_absoluteX="96dp"
+        android:layout_editor_absoluteY="581dp"
+        android:text="69"/>
+
+    <TextView
+        android:id="@+id/EnterWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/HeightInput"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:text="Enter Weight:"
+        android:layout_editor_absoluteX="165dp"
+        android:layout_editor_absoluteY="394dp" />
+
+    <EditText
+        android:id="@+id/WeightInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/EnterWeight"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:inputType="numberDecimal"
+        android:text="69"
+        android:layout_editor_absoluteX="97dp"
+        android:layout_editor_absoluteY="421dp" />
+
+    <EditText
+        android:id="@+id/HeightInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_editor_absoluteX="96dp"
+        android:layout_editor_absoluteY="284dp"
+        android:layout_below="@+id/EnterHeight"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="69"/>
+
+    <EditText
+        android:id="@+id/BMICalculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_editor_absoluteX="96dp"
+        android:layout_editor_absoluteY="115dp"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="BMI Calculator"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/EnterHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_editor_absoluteX="164dp"
+        android:layout_editor_absoluteY="257dp"
+        android:layout_below="@+id/BMICalculator"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:text="Enter Height:" />
+
+</RelativeLayout>
