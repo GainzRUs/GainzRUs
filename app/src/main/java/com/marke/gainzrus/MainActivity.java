@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+    TextView dateTextView = findViewById(R.id.date_text_view);
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -20,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
     }
+
+    String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+
+    // textView is the TextView view that should display it
+    dateTextView.
 
     // The click handler method defined in the XML layout
         public void onClickViewWorkout(View view) {
