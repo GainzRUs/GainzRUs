@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+    Calendar time = Calendar.getInstance();
     TextView dateTextView = findViewById(R.id.date_text_view);
     @Override
     protected void onCreate(Bundle savedInstanceState)
