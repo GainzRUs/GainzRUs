@@ -1,7 +1,12 @@
 package com.marke.gainzrus;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
@@ -11,35 +16,54 @@ import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-    Calendar time = Calendar.getInstance();
-    TextView dateTextView = findViewById(R.id.date_text_view);
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // hide app title
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
+
+        //create a date string
+        String currentDate = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
+        //get hold of textview.
+        TextView date = (TextView) findViewById(R.id.date_text_view);
+        //set it as current date.
+        date.setText(currentDate);
+
+        String[] motivationalQuotes = new String[]
+                {
+                        "Success is not final; failure is not fatal: It is the courage to continue that counts. — Winston S. Churchill",
+                        "It is better to fail in originality than to succeed in imitation. — Herman Melville",
+                        "The road to success and the road to failure are almost exactly the same. — Colin R. Davis",
+                        "Success usually comes to those who are too busy looking for it. — Henry David Thoreau",
+                        "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success. —Dale Carnegie",
+                        "Anything lost can be found again except for time wasted. A vision without action is merely a dream. —Kevin Gates",
+                        "Those who say they can't and those who say they can are both usually right. —Henry Ford",
+                        "I never dreamed about success. I worked for it. —Estée Lauder",
+                        "Success is getting what you want, happiness is wanting what you get. ―W. P. Kinsella"
+                };
+
+        // use random number to choose motivational quote and display it
+        Random random = new Random();
+        int randomIndex = random.nextInt(9);
+        String quoteMessage = motivationalQuotes[randomIndex];
+        TextView quote = findViewById(R.id.workoutType_text_view);
+        quote.setText(quoteMessage);
     }
 
-    String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
-
-    // textView is the TextView view that should display it
-    dateTextView.
-
     // The click handler method defined in the XML layout
-        public void onClickViewWorkout(View view) {
-            Intent intent = new Intent(MainActivity.this, WorkoutHistory.class);
-            startActivity(intent);
-        }
+    public void onClickViewWorkout(View view) {
+        Intent intent = new Intent(MainActivity.this, WorkoutHistory.class);
+        startActivity(intent);
+    }
 
-        public void onClickUserProfile(View view)
-        {
-            Intent intent = new Intent(MainActivity.this, ProfileSetup.class);
-            startActivity(intent);
-        }
+    public void onClickUserProfile(View view) {
+        Intent intent = new Intent(MainActivity.this, ProfileSetup.class);
+        startActivity(intent);
+    }
 
     public void onAddExerciseClick(View view) {
         Intent intent = new Intent(MainActivity.this, AddExercise.class);
