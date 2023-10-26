@@ -1,6 +1,7 @@
 package com.marke.gainzrus;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,12 +27,42 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        String dayOfTheWeek;
+
+        switch (day) {
+            case Calendar.SUNDAY:
+                dayOfTheWeek = "Sunday";
+                break;
+            case Calendar.MONDAY:
+                dayOfTheWeek = "Monday";
+                break;
+            case Calendar.TUESDAY:
+                dayOfTheWeek = "Tuesday";
+                break;
+            case Calendar.WEDNESDAY:
+                dayOfTheWeek = "Wednesday";
+                break;
+            case Calendar.THURSDAY:
+                dayOfTheWeek = "Thursday";
+                break;
+            case Calendar.FRIDAY:
+                dayOfTheWeek = "Friday";
+                break;
+            case Calendar.SATURDAY:
+                dayOfTheWeek = "Saturday";
+                break;
+            default:
+                dayOfTheWeek = "Sunday";
+                break;
+        }
         //create a date string
         String currentDate = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
         //get hold of textview.
         TextView date = (TextView) findViewById(R.id.date_text_view);
         //set it as current date.
-        date.setText(currentDate);
+        date.setText(dayOfTheWeek + " " + currentDate);
 
         String[] motivationalQuotes = new String[]
                 {
@@ -67,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onAddExerciseClick(View view) {
         Intent intent = new Intent(MainActivity.this, AddExercise.class);
+        startActivity(intent);
+    }
+
+    public void onClickSettings(View view){
+        Intent intent = new Intent(this, AppSettings.class);
         startActivity(intent);
     }
 
