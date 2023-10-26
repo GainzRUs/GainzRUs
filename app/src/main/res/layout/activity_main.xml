@@ -90,8 +90,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/ic_homepage_user"
-        android:contentDescription="SettingsSetup"
-        android:onClick="onClickSettings" />
+        android:contentDescription="ProfileSetup"
+        android:onClick="onClickUserProfile" />
 
 
 </RelativeLayout>
