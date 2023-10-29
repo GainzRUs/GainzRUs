@@ -1,53 +1,53 @@
 package com.marke.gainzrus;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.EditText;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatActivity;
-public class AddExercise extends AppCompatActivity {
+import android.widget.NumberPicker;
 
-    private EditText editText;
-    private Button submitButton;
-    private Button backButton;
+
+public class AddExercise extends AppCompatActivity {
+    private LinearLayout setsContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercise);
 
+        setsContainer = findViewById(R.id.setsContainer);
+        // Find the NumberPicker view by its ID
+        NumberPicker setsNumberPicker = findViewById(R.id.setsNumberPicker);
 
-        editText = findViewById(R.id.editText);
-        submitButton = findViewById(R.id.submitButton);
-        backButton = findViewById(R.id.backButton);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        // Set the minimum and maximum values
+        setsNumberPicker.setMinValue(1);
+        setsNumberPicker.setMaxValue(10);
+
+        // Set the default value
+        setsNumberPicker.setValue(1);
+
+        setsNumberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
-            public void onClick(View view) {
-                // Get the text entered by the user
-                String userInput = editText.getText().toString();
-
-                // Check if the input is not empty
-                if (!userInput.isEmpty()) {
-                    // Do something with the user's input (e.g., display it in a Toast)
-                    Toast.makeText(AddExercise.this, "You entered: " + userInput, Toast.LENGTH_SHORT).show();
-                } else {
-                    // Display a message if the input is empty
-                    Toast.makeText(AddExercise.this, "Please enter text.", Toast.LENGTH_SHORT).show();
-                }
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                updateInputFields(newVal);
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Finish the current activity to go back to the previous activity (MainActivity)
-                finish();
-            }
-        });
+        updateInputFields(1);
+    }
 
+    private void updateInputFields(int numOfSets) {
+        // Remove any existing EditText fields
+        setsContainer.removeAllViews();
 
+        for (int i = 0; i < numOfSets; i++) {
+            EditText repsEditText = new EditText(this);
+            repsEditText.setHint("Reps for Set " + (i + 1));
+            setsContainer.addView(repsEditText);
+
+            EditText weightEditText = new EditText(this);
+            weightEditText.setHint("Weight for Set " + (i + 1));
+            setsContainer.addView(weightEditText);
+        }
     }
 }
