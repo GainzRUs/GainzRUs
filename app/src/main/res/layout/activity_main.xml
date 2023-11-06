@@ -3,7 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#707d97">
 
     <TextView
         android:id="@+id/appTitle_text_view"
@@ -47,14 +48,16 @@
     <Button
         android:id="@+id/buttonNavigate"
         android:layout_width="wrap_content"
-        android:layout_height="62dp"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/pastWorkouts_button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="#fff"
         android:onClick="onAddExerciseClick"
-        android:rotationY="-4"
         android:text="Log New Workout"
-        android:backgroundTint="#3944bc"
+        android:textColor="#3944bc"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:visibility="visible"
         tools:visibility="visible" />
 
@@ -68,7 +71,6 @@
         android:backgroundTint="#fff"
         android:onClick="onClickViewWorkout"
         android:text="View workout history"
-        android:rotationY="4"
         android:textColor="#3944bc"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -81,7 +83,7 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/ic_homepage_settings"
         android:contentDescription="Settings"
-        android:onClick="onClickSettings"/>
+        android:onClick="onClickSettings" />
 
     <ImageView
         android:id="@+id/button_user_profile"

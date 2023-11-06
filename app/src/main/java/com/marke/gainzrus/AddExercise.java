@@ -18,6 +18,8 @@ public class AddExercise extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_exercise);
 
+        getSupportActionBar().setTitle("Add exercise");
+
         setsContainer = findViewById(R.id.setsContainer);
         // Find the NumberPicker view by its ID
         exerciseNamesLayout = findViewById(R.id.exerciseNamesLayout);

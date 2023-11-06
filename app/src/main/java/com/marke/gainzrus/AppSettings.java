@@ -10,5 +10,7 @@ public class AppSettings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_settings);
+
+        getSupportActionBar().setTitle("Settings");
     }
 }

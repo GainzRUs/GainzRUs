@@ -50,11 +50,8 @@ public class MainActivity extends AppCompatActivity {
             case Calendar.FRIDAY:
                 dayOfTheWeek = "Friday";
                 break;
-            case Calendar.SATURDAY:
-                dayOfTheWeek = "Saturday";
-                break;
             default:
-                dayOfTheWeek = "Sunday";
+                dayOfTheWeek = "Saturday";
                 break;
         }
         //create a date string

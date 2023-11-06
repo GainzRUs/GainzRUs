@@ -2,8 +2,10 @@ package com.marke.gainzrus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.StatusBarManager;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
