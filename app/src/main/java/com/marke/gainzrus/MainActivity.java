@@ -1,18 +1,12 @@
 package com.marke.gainzrus;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 
@@ -28,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Calendar calendar = Calendar.getInstance();
+
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         String dayOfTheWeek;
 
@@ -98,9 +93,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickSettings(View view){
+    public void onClickSettings(View view) {
         Intent intent = new Intent(this, AppSettings.class);
         startActivity(intent);
     }
-
 }
