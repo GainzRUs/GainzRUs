@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background_workout">
+    android:background="#707d97">
 
     <TextView
         android:id="@+id/appTitle_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="150dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:text="Gainz RUs"
         android:textColor="#3944bc"
@@ -19,16 +18,17 @@
         android:textStyle="bold" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/date_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appTitle_text_view"
         android:layout_centerInParent="true"
-        android:layout_marginStart="35dp"
+        android:layout_marginTop="128dp"
         android:ems="12"
         android:gravity="center"
-        android:text="Today: Mon. 09/10"
+        android:text="Will not display when run."
+        android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -40,10 +40,26 @@
         android:layout_centerInParent="true"
         android:ems="12"
         android:gravity="center"
-        android:text="Pull: Back and Biceps"
+        android:text="Will not display when run."
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonNavigate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pastWorkouts_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#fff"
+        android:onClick="onAddExerciseClick"
+        android:text="Log New Workout"
+        android:textColor="#3944bc"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/pastWorkouts_button"
@@ -59,40 +75,25 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Button
+    <ImageView
+        android:id="@+id/button_settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_homepage_settings"
+        android:contentDescription="Settings"
+        android:onClick="onClickSettings" />
+
+    <ImageView
         android:id="@+id/button_user_profile"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/ic_homepage_user"
-        android:onClick="onClickUserProfile"
-        android:text="."
-        android:textColor="@color/white" />
-
-    <ImageView
-        android:id="@+id/settingsIcon_image_view"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/ic_homepage_settings" />
-
-
-    <Button
-        android:id="@+id/buttonNavigate"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="456dp"
-        android:onClick="onAddExerciseClick"
-        android:rotationY="-4"
-        android:text="Log New Workout"
-        android:visibility="visible"
-        tools:visibility="visible" />
+        android:contentDescription="ProfileSetup"
+        android:onClick="onClickUserProfile" />
 
 
 </RelativeLayout>

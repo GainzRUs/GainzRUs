@@ -13,16 +13,20 @@
         android:theme="@style/Theme.GainzRUs"
         tools:targetApi="31">
         <activity
-
+            android:name=".AppSettings"
+            android:theme="@style/Theme.GainzRUs2"
+            android:exported="false" />
+        <activity
             android:name=".ProfileSetup"
+            android:theme="@style/Theme.GainzRUs2"
             android:exported="false" />
         <activity
             android:name=".WorkoutHistory"
-            android:exported="false"
-            />
+            android:theme="@style/Theme.GainzRUs2"
+            android:exported="false" />
         <activity
             android:name=".AddExercise"
-
+            android:theme="@style/Theme.GainzRUs2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

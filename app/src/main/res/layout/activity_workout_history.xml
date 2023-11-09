@@ -5,8 +5,9 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/list_view_workouts"
+    <ExpandableListView
+        android:id="@+id/expandable_list_view_workouts"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+    </ExpandableListView>
 </LinearLayout>
