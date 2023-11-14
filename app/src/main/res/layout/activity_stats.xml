@@ -5,8 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!--    <nl.dionsegijn.konfetti.xml.KonfettiView-->
+<!--        android:id="@+id/konfettiView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
     <TextView
-        android:id="@+id/appTitle_text_view"
+        android:id="@+id/statsHeader_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -15,5 +20,72 @@
         android:textColor="#3944bc"
         android:textSize="32sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/benchMax_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statsHeader_text_view"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="100dp"
+        android:text="Bench:"
+        android:textColor="#3944bc"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/benchValue_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statsHeader_text_view"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="100dp"
+        android:layout_toRightOf="@id/benchMax_text_view"
+        android:text="0.00 lb"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/squatMax_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/benchMax_text_view"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="100dp"
+        android:text="Squat:"
+        android:textColor="#3944bc"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/squatValue_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/benchValue_text_view"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="100dp"
+        android:layout_toRightOf="@id/benchMax_text_view"
+        android:text="0.00 lb"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/deadliftMax_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/squatMax_text_view"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="100dp"
+        android:text="Deadlift:"
+        android:textColor="#3944bc"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/deadliftValue_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/squatValue_text_view"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="100dp"
+        android:layout_toRightOf="@id/benchMax_text_view"
+        android:text="0.00 lb"
+        android:textSize="32sp" />
+
 
 </RelativeLayout>
