@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.NumberPicker;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class AddExercise extends AppCompatActivity {
@@ -54,6 +55,11 @@ public class AddExercise extends AppCompatActivity {
 
                 // Update the UI by adding a TextView with the exercise name
                 addExerciseNameToUI(exercise.getExerciseName());
+
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(AddExercise.this);
+                boolean b = dataBaseHelper.addOne();
+                Toast.makeText(AddExercise.this, "sucess" + b, Toast.LENGTH_SHORT).show();
+
             }
         });
 
