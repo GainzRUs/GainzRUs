@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:text="Settings page WIP"
+        android:layout_marginTop="75dp"
+        android:text="Your personal best:"
         android:textColor="#3944bc"
         android:textSize="32sp"
         android:textStyle="bold" />

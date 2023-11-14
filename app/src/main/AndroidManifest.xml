@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GainzRUs"
         tools:targetApi="31">
         <activity
-            android:name=".AppSettings"
+            android:name=".StatsActivity"
             android:theme="@style/Theme.GainzRUs2"
             android:exported="false" />
         <activity
