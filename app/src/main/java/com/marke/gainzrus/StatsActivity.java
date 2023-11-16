@@ -18,10 +18,6 @@ import nl.dionsegijn.konfetti.core.models.Size;
 import nl.dionsegijn.konfetti.xml.KonfettiView;
 
 public class StatsActivity extends AppCompatActivity {
-
-//    TextView benchText = findViewById(R.id.benchValue_text_view);
-//    TextView squatText = findViewById(R.id.squatValue_text_view);
-//    TextView deadliftText = findViewById(R.id.deadliftValue_text_view);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +25,16 @@ public class StatsActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Statistics");
 
+        // bind textviews for each exercise
+        TextView benchText = findViewById(R.id.benchValue_text_view);
+        TextView squatText = findViewById(R.id.squatValue_text_view);
+        TextView deadliftText = findViewById(R.id.deadliftValue_text_view);
+
+        // bind button for confetti blast
         Button button;
         button = findViewById(R.id.konfetti_button);
 
+        // bind confetti view and define its blast attributes
         KonfettiView konfettiView = findViewById(R.id.konfettiView);
 
         Shape.DrawableShape drawableShape = new Shape.DrawableShape(AppCompatResources.getDrawable(this, R.drawable.ic_confetti1), true);
@@ -50,27 +53,40 @@ public class StatsActivity extends AppCompatActivity {
             );
         });
 
+        // dummy random max data for 3 exercises
         int[] benchArray = new int[10];
         int[] squatArray = new int[10];
         int[] deadliftArray = new int[10];
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 10; i++)
         {
-            for (int j = 0; j < 10; j++)
+            benchArray[i] = (int) (Math.random() * 175) + 1;
+            squatArray[i] = (int) (Math.random() * 350) + 1;
+            deadliftArray[i] = (int) (Math.random() * 600) + 1;
+        }
+
+        double benchMax = 0, squatMax = 0, deadliftMax = 0;
+
+        // find maxes from exercise arrays
+        for (int i = 0; i < 10; i++)
+        {
+            if (benchArray[i] > benchMax)
             {
-                if (i == 0)
-                {
-                    benchArray[j] = (int) (Math.random() * 100);
-                }
-                else if (i == 0)
-                {
-                    squatArray[j] = (int) (Math.random() * 100);
-                }
-                else
-                {
-                    deadliftArray[j] = (int) (Math.random() * 100);
-                }
+                benchMax = benchArray[i];
+            }
+            if (squatArray[i] > squatMax)
+            {
+                squatMax = squatArray[i];
+            }
+            if (deadliftArray[i] > deadliftMax)
+            {
+                deadliftMax = deadliftArray[i];
             }
         }
+
+        // set textviews to hold max values
+        benchText.setText(benchMax + " lb");
+        squatText.setText(squatMax + " lb");
+        deadliftText.setText(deadliftMax + " lb");
     }
 }
