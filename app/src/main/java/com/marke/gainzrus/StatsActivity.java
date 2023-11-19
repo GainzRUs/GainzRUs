@@ -52,7 +52,7 @@ public class StatsActivity extends AppCompatActivity {
                     new PartyFactory(emitterConfig)
                             .shapes(Shape.Circle.INSTANCE, Shape.Square.INSTANCE, drawableShape)
                             .spread(360)
-                            .position(0.5, 0.25, 1, 1)
+                            .position(0.5, 0.5, 0.5, 0.5)
                             .sizes(new Size(8, 50, 10))
                             .timeToLive(1000)
                             .fadeOutEnabled(true)
@@ -92,19 +92,16 @@ public class StatsActivity extends AppCompatActivity {
                         benchMax = weight;
                         benchReps = reps;
                     }
-//                    benchMax = Math.max(benchMax, weight);
                 } else if (Objects.equals(exerciseName, "Squat")) {
                     if (weight > squatMax) {
                         squatMax = weight;
                         squatReps = reps;
                     }
-//                    squatMax = Math.max(squatMax, weight);
                 } else if (Objects.equals(exerciseName, "DeadLift")) {
                     if (weight > deadliftMax) {
                         deadliftMax = weight;
                         deadliftReps = reps;
                     }
-//                    deadliftMax = Math.max(deadliftMax, weight);
                 }
             }
         }
