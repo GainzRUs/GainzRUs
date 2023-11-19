@@ -12,7 +12,8 @@
         android:layout_marginTop="140dp"
         android:textSize="20dp"
         android:layout_centerHorizontal="true"
-        android:text="Username:" />
+        android:text="Username:"
+        />
 
     <EditText
         android:id="@+id/editText_user_name"
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="170dp"
         android:textSize="20dp"
-        android:hint="Enter user name: "
+        android:hint="Enter Username"
         android:inputType="text" />
 
 
@@ -30,10 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText_user_name"
+
         android:layout_centerInParent="true"
         android:layout_marginTop="310dp"
         android:onClick="onClickAddUser"
-
         android:text="Done" />
     <ImageView
         android:id="@+id/imageView"
@@ -68,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="290dp"
         android:textSize="20dp"
-        android:hint="Enter user name: "
+        android:hint="Enter Height"
         android:inputType="text" />
 
 
@@ -88,7 +89,7 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:layout_marginTop="410dp"
-        android:hint="Enter user name: "
+        android:hint="Enter Weight"
         android:inputType="text" />
 
     <TextView
@@ -107,7 +108,17 @@
         android:textSize="25dp"
         android:layout_marginTop="650dp"
         android:layout_centerHorizontal="true"
-        android:text="24.6" />
+        android:text=""
+        />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@android:drawable/ic_menu_revert"
+        android:onClick="onClickHomePage"
+        />
 
 
 </RelativeLayout>
