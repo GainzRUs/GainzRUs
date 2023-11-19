@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GainzRUs</string>
+
+    <string name="workouts">Menu</string>
+    <string name="backgroundImage">ProfileBackground</string>
+    <string name="defaultProfileImage">DefaultProfImage</string>
+    <string name="SubmitProfName">ProfNameButton</string>
+    <string name="Hint">UserEnterName</string>
+    <string name="Enter_Name_Here">NameHint</string>
+
+
+
+
 </resources>

@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Space;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class ProfileSetup extends AppCompatActivity {
+
+    private Spinner spinner_menu;
 
     User bodyBuilder = new User();
     private EditText userNameText;
