@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.NumberPicker;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class AddExercise extends AppCompatActivity {
@@ -48,6 +49,10 @@ public class AddExercise extends AppCompatActivity {
                 // Create a new exercise and populate it with user input
                 Exercise exercise = createExerciseFromInput(exerciseNameEditText, setsNumberPicker, setsContainer);
 
+                DataBaseHelper dataBaseHelper = new DataBaseHelper(AddExercise.this);
+
+                boolean b = dataBaseHelper.addExerciseWithSets(exercise);
+                Toast.makeText(AddExercise.this, "sucess" + b, Toast.LENGTH_SHORT).show();
                 // Add the exercise to the ExerciseManager
                 ExerciseManager.getInstance().addExercise(exercise);
 
@@ -55,7 +60,9 @@ public class AddExercise extends AppCompatActivity {
                 clearInputFields(exerciseNameEditText);
 
                 // Update the UI by adding a TextView with the exercise name
-                addExerciseNameToUI(exercise.getExerciseName());
+                addExerciseToUI(exercise);
+
+
             }
         });
 
@@ -77,13 +84,15 @@ public class AddExercise extends AppCompatActivity {
             // Add a new ExerciseSet to the exercise with the retrieved values
             // For example:
             View setView = setsContainer.getChildAt(i);
+            Toast.makeText(this, "here", Toast.LENGTH_SHORT).show(); // we make it here
             if (setView instanceof LinearLayout) {
                 LinearLayout dynamicSetContainer = (LinearLayout) setView;
-
+                Toast.makeText(this, "here", Toast.LENGTH_SHORT).show(); // we do not make it here
                 if (dynamicSetContainer.getChildCount() == 2) {
                     EditText repsEditText = (EditText) dynamicSetContainer.getChildAt(0);
                     EditText weightEditText = (EditText) dynamicSetContainer.getChildAt(1);
 
+                    Toast.makeText(this, "Reps: " + repsEditText.getText().toString() + ", Weight: " + weightEditText.getText().toString(), Toast.LENGTH_SHORT).show();
                     int reps = Integer.parseInt(repsEditText.getText().toString());
                     double weight = Double.parseDouble(weightEditText.getText().toString());
 
@@ -101,13 +110,18 @@ public class AddExercise extends AppCompatActivity {
         setsContainer.removeAllViews();
 
         for (int i = 0; i < numOfSets; i++) {
+            LinearLayout dynamicSetContainer = new LinearLayout(this);
+            dynamicSetContainer.setOrientation(LinearLayout.HORIZONTAL);
+
             EditText repsEditText = new EditText(this);
             repsEditText.setHint("Reps for Set " + (i + 1));
-            setsContainer.addView(repsEditText);
+            dynamicSetContainer.addView(repsEditText);
 
             EditText weightEditText = new EditText(this);
             weightEditText.setHint("Weight for Set " + (i + 1));
-            setsContainer.addView(weightEditText);
+            dynamicSetContainer.addView(weightEditText);
+
+            setsContainer.addView(dynamicSetContainer);
         }
     }
     private void clearInputFields(EditText exerciseNameEditText) {
@@ -131,5 +145,25 @@ public class AddExercise extends AppCompatActivity {
         TextView exerciseNameTextView = new TextView(this);
         exerciseNameTextView.setText(exerciseName);
         exerciseNamesLayout.addView(exerciseNameTextView);
+    }
+    private void addExerciseToUI(Exercise exercise) {
+        // Create a LinearLayout to hold all exercise information
+        LinearLayout exerciseLayout = new LinearLayout(this);
+        exerciseLayout.setOrientation(LinearLayout.VERTICAL);
+
+        // Create a TextView for the exercise name
+        TextView exerciseNameTextView = new TextView(this);
+        exerciseNameTextView.setText("Exercise Name: " + exercise.getExerciseName());
+        exerciseLayout.addView(exerciseNameTextView);
+
+        // Iterate through exercise sets and display information
+        for (ExerciseSet set : exercise.getExerciseSets()) {
+            TextView setTextView = new TextView(this);
+            setTextView.setText("Set - Reps: " + set.getNumberOfReps() + ", Weight: " + set.getWeight());
+            exerciseLayout.addView(setTextView);
+        }
+
+        // Add the exercise layout to the main layout
+        exerciseNamesLayout.addView(exerciseLayout);
     }
 }
