@@ -34,4 +34,9 @@ public class ProfileSetup extends AppCompatActivity {
 //        Intent intent = new Intent(ProfileSetup.this, WorkoutHistory.class);
 //        startActivity(intent);
     }
+
+    public void onClickUserSettings(View view) {
+        Intent intent = new Intent(ProfileSetup.this, Settings.class);
+        startActivity(intent);
+    }
 }

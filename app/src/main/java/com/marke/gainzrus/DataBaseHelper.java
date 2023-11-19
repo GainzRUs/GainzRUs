@@ -160,4 +160,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Date date = new Date();
         return dateFormat.format(date);
     }
+
+    // for user to clear data
+    public void clearDatabase() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + EXERCISE_TABLE);
+        db.execSQL("DELETE FROM " + SETS_TABLE);
+        db.execSQL("VACUUM");
+    }
 }

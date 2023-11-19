@@ -3,6 +3,7 @@ package com.marke.gainzrus;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import nl.dionsegijn.konfetti.core.models.Size;
 import nl.dionsegijn.konfetti.xml.KonfettiView;
 
 public class StatsActivity extends AppCompatActivity {
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,7 @@ public class StatsActivity extends AppCompatActivity {
 
         // variable declarations for 3 PRs
         double benchMax = 0.00, squatMax = 0.00, deadliftMax = 0.00;
+        int benchReps = 0, squatReps = 0, deadliftReps = 0;
 
         // Fetch exercise data from the database
         DataBaseHelper dbHelper = new DataBaseHelper(this);
@@ -81,21 +84,34 @@ public class StatsActivity extends AppCompatActivity {
             for (ExerciseSet exerciseSet : exerciseSets) {
                 // get weight for each exercise set
                 double weight = exerciseSet.getWeight(); // Retrieve the weight for each exercise set
+                int reps = exerciseSet.getNumberOfReps();
 
                 // compare weight with current max
                 if (Objects.equals(exerciseName, "Bench")) {
-                    benchMax = Math.max(benchMax, weight);
+                    if (weight > benchMax) {
+                        benchMax = weight;
+                        benchReps = reps;
+                    }
+//                    benchMax = Math.max(benchMax, weight);
                 } else if (Objects.equals(exerciseName, "Squat")) {
-                    squatMax = Math.max(squatMax, weight);
+                    if (weight > squatMax) {
+                        squatMax = weight;
+                        squatReps = reps;
+                    }
+//                    squatMax = Math.max(squatMax, weight);
                 } else if (Objects.equals(exerciseName, "DeadLift")) {
-                    deadliftMax = Math.max(deadliftMax, weight);
+                    if (weight > deadliftMax) {
+                        deadliftMax = weight;
+                        deadliftReps = reps;
+                    }
+//                    deadliftMax = Math.max(deadliftMax, weight);
                 }
             }
         }
 
         // display the PRs for each exercise
-        benchText.setText(benchMax + "lb");
-        squatText.setText(squatMax + " lb");
-        deadliftText.setText(deadliftMax + " lb");
+        benchText.setText(String.format("%.2f lb x %d", benchMax, benchReps));
+        squatText.setText(String.format("%.2f lb x %d", squatMax, squatReps));
+        deadliftText.setText(String.format("%.2f lb x %d", deadliftMax, deadliftReps));
     }
 }

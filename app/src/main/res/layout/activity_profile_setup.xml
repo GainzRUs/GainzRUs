@@ -9,20 +9,20 @@
         android:id="@+id/userLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:textSize="20dp"
         android:layout_centerHorizontal="true"
-        android:text="Username:" />
+        android:layout_marginTop="140dp"
+        android:text="Username:"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editText_user_name"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="170dp"
-        android:textSize="20dp"
         android:hint="Enter user name: "
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="20dp" />
 
 
     <Button
@@ -33,81 +33,89 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="310dp"
         android:onClick="onClickAddUser"
-
         android:text="Done" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/editTextText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="30dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="@string/app_name" />
+        android:inputType="text"
+        android:text="@string/app_name"
+        android:textSize="30dp" />
 
 
     <TextView
         android:id="@+id/hLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:textSize="20dp"
         android:layout_centerHorizontal="true"
-        android:text="Height:" />
+        android:layout_marginTop="260dp"
+        android:text="Height:"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editText_height"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="290dp"
-        android:textSize="20dp"
         android:hint="Enter user name: "
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="20dp" />
 
 
     <TextView
         android:id="@+id/wLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginTop="380dp"
         android:layout_centerHorizontal="true"
-        android:text="Weight:" />
+        android:layout_marginTop="380dp"
+        android:text="Weight:"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editText_weight"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="410dp"
         android:hint="Enter user name: "
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/bmiLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginTop="620dp"
         android:layout_centerHorizontal="true"
-        android:text="BMI:" />
+        android:layout_marginTop="620dp"
+        android:text="BMI:"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/bmiValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:layout_marginTop="650dp"
         android:layout_centerHorizontal="true"
-        android:text="24.6" />
+        android:layout_marginTop="650dp"
+        android:text="24.6"
+        android:textSize="25dp" />
 
+    <ImageView
+        android:id="@+id/button_user_settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_homepage_settings"
+        android:contentDescription="Settings"
+        android:onClick="onClickUserSettings" />
 
 </RelativeLayout>
