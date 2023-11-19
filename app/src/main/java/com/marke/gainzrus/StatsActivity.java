@@ -23,6 +23,7 @@ public class StatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
+        // change title of page
         getSupportActionBar().setTitle("Statistics");
 
         // bind textviews for each exercise
