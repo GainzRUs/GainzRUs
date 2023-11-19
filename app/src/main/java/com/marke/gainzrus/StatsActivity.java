@@ -6,9 +6,13 @@ import androidx.appcompat.content.res.AppCompatResources;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
 import nl.dionsegijn.konfetti.core.PartyFactory;
 import nl.dionsegijn.konfetti.core.emitter.Emitter;
 
@@ -54,39 +58,43 @@ public class StatsActivity extends AppCompatActivity {
             );
         });
 
-        // dummy random max data for 3 exercises
-        int[] benchArray = new int[10];
-        int[] squatArray = new int[10];
-        int[] deadliftArray = new int[10];
+        // variable declarations for 3 PRs
+        double benchMax = 0.00, squatMax = 0.00, deadliftMax = 0.00;
 
-        for (int i = 0; i < 10; i++)
-        {
-            benchArray[i] = (int) (Math.random() * 175) + 1;
-            squatArray[i] = (int) (Math.random() * 350) + 1;
-            deadliftArray[i] = (int) (Math.random() * 600) + 1;
+        // Fetch exercise data from the database
+        DataBaseHelper dbHelper = new DataBaseHelper(this);
+        List<Exercise> allExercises = dbHelper.getAllExercises();
+
+        // go through exercises in database
+        for (Exercise exercise : allExercises) {
+            String exerciseName = exercise.getExerciseName().trim();
+
+            // if exercise isn't one of these go to next exercise in database
+            if (!(Objects.equals(exerciseName, "Bench") || Objects.equals(exerciseName, "Squat") || Objects.equals(exerciseName, "DeadLift"))) {
+                continue;
+            }
+
+            // list of exercise sets (1-10)
+            List<ExerciseSet> exerciseSets = exercise.getExerciseSets();
+
+            // go through each set and find highest weight
+            for (ExerciseSet exerciseSet : exerciseSets) {
+                // get weight for each exercise set
+                double weight = exerciseSet.getWeight(); // Retrieve the weight for each exercise set
+
+                // compare weight with current max
+                if (Objects.equals(exerciseName, "Bench")) {
+                    benchMax = Math.max(benchMax, weight);
+                } else if (Objects.equals(exerciseName, "Squat")) {
+                    squatMax = Math.max(squatMax, weight);
+                } else if (Objects.equals(exerciseName, "DeadLift")) {
+                    deadliftMax = Math.max(deadliftMax, weight);
+                }
+            }
         }
 
-        double benchMax = 0, squatMax = 0, deadliftMax = 0;
-
-        // find maxes from exercise arrays
-        for (int i = 0; i < 10; i++)
-        {
-            if (benchArray[i] > benchMax)
-            {
-                benchMax = benchArray[i];
-            }
-            if (squatArray[i] > squatMax)
-            {
-                squatMax = squatArray[i];
-            }
-            if (deadliftArray[i] > deadliftMax)
-            {
-                deadliftMax = deadliftArray[i];
-            }
-        }
-
-        // set textviews to hold max values
-        benchText.setText(benchMax + " lb");
+        // display the PRs for each exercise
+        benchText.setText(benchMax + "lb");
         squatText.setText(squatMax + " lb");
         deadliftText.setText(deadliftMax + " lb");
     }
