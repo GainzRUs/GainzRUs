@@ -33,6 +33,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="310dp"
         android:onClick="onClickAddUser"
+        android:background="#3944bc"
         android:text="Done" />
 
     <ImageView
