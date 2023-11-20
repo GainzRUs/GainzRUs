@@ -4,14 +4,20 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private MediaPlayer backgroundMusic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
+
+        backgroundMusic = MediaPlayer.create(MainActivity.this, R.raw.rocky);
+        backgroundMusic.setLooping(true);
+        backgroundMusic.start();
 
         Calendar calendar = Calendar.getInstance();
 
@@ -101,5 +111,27 @@ public class MainActivity extends AppCompatActivity {
     public void onClickUserSettings(View view) {
         Intent intent = new Intent(MainActivity.this, Settings.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        backgroundMusic.start();
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        backgroundMusic.pause();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        backgroundMusic.stop();
+        backgroundMusic.release();
     }
 }
