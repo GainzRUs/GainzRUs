@@ -62,8 +62,5 @@ public class ProfileSetup extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickUserSettings(View view) {
-        Intent intent = new Intent(ProfileSetup.this, Settings.class);
-        startActivity(intent);
-    }
+
 }

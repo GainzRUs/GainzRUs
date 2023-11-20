@@ -93,8 +93,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickSettings(View view) {
-        Intent intent = new Intent(this, StatsActivity.class);
+    public void onClickPRStats(View view) {
+        Intent intent = new Intent(MainActivity.this, StatsActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickUserSettings(View view) {
+        Intent intent = new Intent(MainActivity.this, Settings.class);
         startActivity(intent);
     }
 }

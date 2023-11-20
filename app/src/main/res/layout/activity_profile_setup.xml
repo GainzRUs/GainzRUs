@@ -51,12 +51,14 @@
         android:id="@+id/button_add_user_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="550dp"
+        android:layout_below="@+id/editText_user_name"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="230dp"
+        android:background="#3944bc"
         android:contentDescription="@string/SubmitProfName"
         android:onClick="onClickAddUser"
-        android:background="#3944bc"
         android:text="Done" />
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
