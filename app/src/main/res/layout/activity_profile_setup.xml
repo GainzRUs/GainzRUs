@@ -32,8 +32,8 @@
         android:layout_below="@+id/editText_user_name"
         android:layout_centerInParent="true"
         android:layout_marginTop="310dp"
-        android:onClick="onClickAddUser"
         android:background="#3944bc"
+        android:onClick="onClickAddUser"
         android:text="Done" />
 
     <ImageView
@@ -109,14 +109,6 @@
         android:text="24.6"
         android:textSize="25dp" />
 
-    <ImageView
-        android:id="@+id/button_user_settings"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/ic_homepage_settings"
-        android:contentDescription="Settings"
-        android:onClick="onClickUserSettings" />
+
 
 </RelativeLayout>
