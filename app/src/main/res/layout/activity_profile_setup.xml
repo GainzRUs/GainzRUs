@@ -55,6 +55,7 @@
         android:layout_marginTop="550dp"
         android:contentDescription="@string/SubmitProfName"
         android:onClick="onClickAddUser"
+        android:background="#3944bc"
         android:text="Done" />
     <ImageView
         android:id="@+id/imageView5"
