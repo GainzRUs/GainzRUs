@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#707d97">
@@ -9,6 +10,7 @@
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         android:contentDescription="@string/backgroundImage"
         android:src="@drawable/backgroundimage" />
 
@@ -73,23 +75,30 @@
         android:layout_centerHorizontal="true"
         android:text="@string/HeightLabel" />
 
+    <TextView
+        android:id="@+id/centerHold"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="380dp"
+        />
 
     <EditText
         android:id="@+id/heightFeetValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
+        android:layout_toLeftOf="@id/centerHold"
         android:layout_marginTop="380dp"
-        android:textSize="22sp"
-        android:hint="@string/FeetLabel"
         android:autofillHints=""
-        android:inputType="numberDecimal" />
+        android:hint="@string/FeetLabel"
+        android:inputType="numberDecimal"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/heightInchValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
+        android:layout_toRightOf="@id/centerHold"
         android:layout_marginTop="380dp"
         android:textSize="22sp"
         android:hint="@string/InchLabel"
