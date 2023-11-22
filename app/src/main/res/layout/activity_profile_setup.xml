@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#707d97">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="800dp"
+        android:layout_height="match_parent"
         android:contentDescription="@string/backgroundImage"
         android:src="@drawable/backgroundimage" />
 
@@ -20,60 +19,49 @@
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/defaultProfileImage"
         android:src="@drawable/profile"
-        android:text="Username:"
         android:layout_marginTop="110dp"
         />
 
     <TextView
-        android:id="@+id/userText"
+        android:id="@+id/userLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
-        android:text="Username:" />
+        android:text="@string/UserLabel" />
 
     <EditText
-        android:id="@+id/editText_user_name"
+        android:id="@+id/userValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="280dp"
-
         android:inputType="text"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:autofillHints="Enter user name:"
-
-        android:hint="Enter Username" />
+        android:textSize="22sp"
+        android:autofillHints=""
+        android:hint="@string/userEx" />
 
     <Button
         android:id="@+id/button_add_user_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText_user_name"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="230dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="550dp"
         android:background="#3944bc"
         android:contentDescription="@string/SubmitProfName"
         android:onClick="onClickAddUser"
-        android:text="Done" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         />
+        android:text="@string/DoneButton" />
 
     <TextView
-        android:id="@+id/editTextText2"
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="@string/app_name" />
+        android:text="@string/app_name"
+        />
 
 
     <TextView
@@ -81,66 +69,81 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="350dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
-        android:text="Height:" />
+        android:text="@string/HeightLabel" />
+
 
     <EditText
-        android:id="@+id/editText_height"
+        android:id="@+id/heightFeetValue"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
         android:layout_marginTop="380dp"
-        android:textSize="20dp"
-        android:hint="Enter Height"
-        android:inputType="text" />
+        android:textSize="22sp"
+        android:hint="@string/FeetLabel"
+        android:autofillHints=""
+        android:inputType="numberDecimal" />
 
+    <EditText
+        android:id="@+id/heightInchValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="380dp"
+        android:textSize="22sp"
+        android:hint="@string/InchLabel"
+        android:autofillHints=""
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/wLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_marginTop="450dp"
         android:layout_centerHorizontal="true"
-        android:text="Weight:" />
+        android:text="@string/WeightLabel" />
 
     <EditText
-        android:id="@+id/editText_weight"
+        android:id="@+id/weightValue"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="22sp"
         android:layout_marginTop="480dp"
-        android:hint="Enter Weight"
-        android:inputType="text" />
+        android:hint="@string/lbsLabel"
+        android:autofillHints=""
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/bmiLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_marginTop="620dp"
         android:layout_centerHorizontal="true"
-        android:text="BMI:" />
+        android:text="@string/BMILabel" />
 
     <TextView
         android:id="@+id/bmiValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_marginTop="650dp"
         android:layout_centerHorizontal="true"
         android:text=""
         />
 
     <Button
+        android:id="@+id/backButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:background="@android:drawable/ic_menu_revert"
         android:onClick="onClickHomePage"
+        android:contentDescription="@string/BackButtonDesc"
         />
 
 

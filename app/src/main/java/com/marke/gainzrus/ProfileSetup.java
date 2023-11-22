@@ -6,19 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Space;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ProfileSetup extends AppCompatActivity {
-
-    private Spinner spinner_menu;
-
     User bodyBuilder = new User();
     private EditText userNameText;
     private EditText userWeightText;
-    private EditText userHeightText;
+    private EditText userFeetText;
+    private EditText userInchText;
     private TextView userBMIText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +28,25 @@ public class ProfileSetup extends AppCompatActivity {
 
     private void findViews()
     {
-        userNameText = findViewById(R.id.editText_user_name);
-        userHeightText = findViewById(R.id.editText_height);
-        userWeightText = findViewById(R.id.editText_weight);
+        userNameText = findViewById(R.id.userValue);
+        userFeetText = findViewById(R.id.heightFeetValue);
+        userInchText = findViewById(R.id.heightInchValue);
+        userWeightText = findViewById(R.id.weightValue);
         userBMIText = findViewById(R.id.bmiValue);
         userBMIText.setText("0.0");
     }
 
-    private double findBMI(EditText h, EditText w){
+    private double findBMI(EditText feet, EditText inch, EditText w){
         // conversion in pounds
-        double height = 0.0, weight = 0.0;
-        height = Double.parseDouble(h.getText().toString());
+        double height, weight;
+        // converting feet to inches; adding total inches
+        height = Double.parseDouble(inch.getText().toString()) +
+                (Double.parseDouble(feet.getText().toString()) * 12);
+        // getting height
         weight = Double.parseDouble(w.getText().toString());
+        // returning BMI
         return (weight/Math.pow(height,2))*703;
+
     }
 
     public void onClickAddUser(View view) {
@@ -53,8 +55,8 @@ public class ProfileSetup extends AppCompatActivity {
         userNameText.getText().clear();
 
         // added BMI stuff
-        double BMI = findBMI(userHeightText,userWeightText);
-        userBMIText.setText(String.valueOf(BMI));
+        double BMI = findBMI(userFeetText, userInchText, userWeightText);
+        userBMIText.setText(String.format("%.1f",BMI));
     }
 
     public void onClickHomePage(View view){
