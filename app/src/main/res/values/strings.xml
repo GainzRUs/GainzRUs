@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GainzRUs</string>
+    <string name="app_name">Gainz-R-Us</string>
 
     <string name="workouts">Menu</string>
     <string name="backgroundImage">ProfileBackground</string>
@@ -8,7 +8,10 @@
     <string name="Hint">UserEnterName</string>
     <string name="Enter_Name_Here">NameHint</string>
 
-
-
+    <string-array name="dropdown_options_array">
+        <item>StatsActivity</item>
+        <item>WorkoutHistory</item>
+        <item> ProfileSetup</item>>
+    </string-array>
 
 </resources>
