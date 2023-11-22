@@ -17,197 +17,142 @@
 
 
     <ImageView
+        android:contentDescription="@string/defaultProfileImage"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="142dp"
-        android:layout_marginBottom="439dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="453dp"
         android:src="@drawable/profile" />
 
     <TextView
-        android:id="@+id/userText"
+        android:id="@+id/userLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="298dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="406dp"
+        android:layout_marginTop="310dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
         android:text="Username:"
-        android:textSize="20sp" />
+        />
 
     <EditText
         android:id="@+id/editText_user_name"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="315dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="354dp"
-        android:hint="Username"
-        android:inputType="text"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:textSize="20sp"
+        android:hint="Enter Username"
+        android:inputType="text" />
+
 
     <Button
         android:id="@+id/button_add_user_info"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="591dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="83dp"
-        android:contentDescription="@string/SubmitProfName"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="120dp"
         android:onClick="onClickAddUser"
-        android:text="DONE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.80"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        android:text="Done" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
     <TextView
         android:id="@+id/editTextText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="109dp"
-        android:layout_marginBottom="604dp"
         android:inputType="text"
-        android:text="@string/app_name"
-        android:textSize="40sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/wLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="488dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="216dp"
-        android:text="Weight:"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/bmiLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="664dp"
-        android:layout_marginEnd="187dp"
-        android:layout_marginBottom="40dp"
-        android:text="BMI:"
-        android:textSize="20sp" />
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="#6487AA"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/app_name" />
 
 
     <TextView
         android:id="@+id/hLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="388dp"
-        android:layout_marginEnd="173dp"
-        android:layout_marginBottom="316dp"
-        android:text="Height:"
-        android:textSize="20sp" />
+        android:layout_marginTop="395dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:text="Height:" />
 
     <EditText
         android:id="@+id/editText_height"
         android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="429dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginBottom="254dp"
+        android:layout_marginTop="420dp"
+        android:textSize="20sp"
         android:hint="Enter Height"
-        android:inputType="text"
-        android:textSize="20sp" />
+        android:inputType="text" />
+
+
+    <TextView
+        android:id="@+id/wLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="475dp"
+        android:layout_centerHorizontal="true"
+        android:text="Weight:" />
 
     <EditText
         android:id="@+id/editText_weight"
         android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="524dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="159dp"
+        android:textSize="20sp"
+        android:layout_marginTop="500dp"
         android:hint="Enter Weight"
-        android:inputType="text"
-        android:textSize="21sp" />
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/bmiLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="620dp"
+        android:layout_centerHorizontal="true"
+        android:text="BMI:" />
 
     <TextView
         android:id="@+id/bmiValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_marginTop="650dp"
         android:layout_centerHorizontal="true"
-        android:text="BMI"
+        android:text=""
         />
 
-
     <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="340dp"
-        android:layout_marginBottom="623dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/homeicon"
-        android:contentDescription="Navigate to the home page"
-        android:onClick="onClickHomePage" />
+        android:onClick="onClickHomePage"
+        />
 
 
     <Spinner
@@ -219,9 +164,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="103dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="663dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="659dp"
         android:background="@drawable/spinner_drawable"
         android:spinnerMode="dropdown" />
 
