@@ -1,15 +1,9 @@
 package com.marke.gainzrus;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.StatusBarManager;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,11 +13,9 @@ import java.util.Map;
 
 public class WorkoutHistory extends AppCompatActivity {
 
-    List<String> monthList;
-    List<String> exerciseList;
-    Map<String, List<String>> exerciseCollection;
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
+    Map<String, List<String>> exerciseCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,74 +24,41 @@ public class WorkoutHistory extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Workout History");
 
-        createMonthList();
-        createCollection();
+        // Fetch exercise data from the database
+        DataBaseHelper dbHelper = new DataBaseHelper(this);
+        List<Exercise> allExercises = dbHelper.getAllExercises();
+
+        // Organize exercises by month
+        exerciseCollection = organizeExercisesByMonth(allExercises);
+
+        // Set up the ExpandableListView
         expandableListView = findViewById(R.id.expandable_list_view_workouts);
-        expandableListAdapter = new MonthlyExpandableListAdapter(this, monthList, exerciseCollection);
+        expandableListAdapter = new MonthlyExpandableListAdapter(this, new ArrayList<>(exerciseCollection.keySet()), exerciseCollection);
         expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int lastExpandedPosition = -1;
-            @Override
-            public void onGroupExpand(int i) {
-                if (lastExpandedPosition != -1 && i != lastExpandedPosition)
-                {
-                    expandableListView.collapseGroup(lastExpandedPosition);
-                }
-                lastExpandedPosition = i;
-            }
-        });
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener(){
-            @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                String selected = expandableListAdapter.getChild(i, i1).toString();
-                Toast.makeText(getApplicationContext(), "Selected: " + selected, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
+
+        // Add event listeners if needed
     }
 
-    private void createMonthList() {
-        monthList = new ArrayList<>();
-        monthList.add("January");
-        monthList.add("February");
-        monthList.add("March");
-        monthList.add("Arpil");
-        monthList.add("May");
-        monthList.add("June");
-    }
+    private Map<String, List<String>> organizeExercisesByMonth(List<Exercise> allExercises) {
+        Map<String, List<String>> organizedCollection = new HashMap<>();
 
-    private void createCollection() {
-        String[] januaryWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] februaryWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] marchWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] aprilWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] mayWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] juneWorkouts = {"Bench", "Squat", "Cardio"};
+        for (Exercise exercise : allExercises) {
+            // Extract month from the exercise date and use it as a key
+            // Modify the following line based on how your Exercise object stores the date
+            String month = ""; // Extract month from exercise date (e.g., "January")
 
-        exerciseCollection = new HashMap<String, List<String>>();
-
-        for (String month : monthList) {
-            if (month.equals("January")) {
-                loadChild(januaryWorkouts);
-            } else if (month.equals("February")) {
-                loadChild(februaryWorkouts);
-            } else if (month.equals("March")) {
-                loadChild(marchWorkouts);
-            } else if (month.equals("Arpil")) {
-                loadChild(aprilWorkouts);
-            } else if (month.equals("May")) {
-                loadChild(mayWorkouts);
-            } else if (month.equals("june")) {
-                loadChild(juneWorkouts);
+            List<String> exerciseList = organizedCollection.get(month);
+            if (exerciseList == null) {
+                exerciseList = new ArrayList<>();
             }
-            exerciseCollection.put(month, exerciseList);
+
+            // Add exercise name to the list
+            exerciseList.add(exercise.getExerciseName());
+
+            // Update the map with the organized list
+            organizedCollection.put(month, exerciseList);
         }
-    }
 
-    private void loadChild(String[] workouts) {
-        exerciseList = new ArrayList<>();
-        for (String workout : workouts) {
-            exerciseList.add(workout);
-        }
+        return organizedCollection;
     }
 }

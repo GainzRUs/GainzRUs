@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/appTitle_text_view"
+    <Button
+        android:id="@+id/clear_data_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:text="Settings page WIP"
-        android:textColor="#3944bc"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#ff0e0e"
+        android:onClick="onClickClearData"
+        android:text="Clear all data"
+        android:textSize="16dp" />
+
 
 </RelativeLayout>

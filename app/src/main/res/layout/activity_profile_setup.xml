@@ -5,35 +5,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="#707d97">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="800dp"
         android:contentDescription="@string/backgroundImage"
-        android:src="@drawable/backgroundimage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:src="@drawable/backgroundimage" />
 
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="469dp"
-        android:contentDescription="@string/defaultProfileImage"
-        android:src="@drawable/profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        android:layout_marginTop="142dp"
+        android:layout_marginBottom="439dp"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/userText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="298dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="406dp"
+        android:text="Username:"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editText_user_name"
@@ -43,10 +50,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="265dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="405dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="315dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="354dp"
         android:hint="Username"
         android:inputType="text"
         android:textColor="@color/black"
@@ -65,10 +72,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="545dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="129dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="591dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="83dp"
         android:contentDescription="@string/SubmitProfName"
         android:onClick="onClickAddUser"
         android:text="DONE"
@@ -79,11 +86,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         />
 
     <TextView
         android:id="@+id/editTextText2"
@@ -94,13 +96,44 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="74dp"
         android:layout_marginEnd="109dp"
-        android:layout_marginBottom="618dp"
+        android:layout_marginBottom="604dp"
         android:inputType="text"
         android:text="@string/app_name"
         android:textSize="40sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/wLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="488dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="216dp"
+        android:text="Weight:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/bmiLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="664dp"
+        android:layout_marginEnd="187dp"
+        android:layout_marginBottom="40dp"
+        android:text="BMI:"
+        android:textSize="20sp" />
+
 
     <TextView
         android:id="@+id/hLabel"
@@ -110,13 +143,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="343dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="361dp"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginEnd="173dp"
+        android:layout_marginBottom="316dp"
         android:text="Height:"
-        android:textSize="19dp" />
-
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editText_height"
@@ -126,38 +158,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="376dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginBottom="307dp"
-        android:hint="Inches"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="429dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="254dp"
+        android:hint="Enter Height"
         android:inputType="text"
-        android:textSize="20dp" />
-
-    <EditText
-        android:id="@+id/editText_Feet"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="377dp"
-        android:layout_marginEnd="213dp"
-        android:layout_marginBottom="306dp"
-        android:hint="Feet"
-        android:inputType="text"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/wLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginTop="450dp"
-        android:layout_centerHorizontal="true"
-        android:text="Weight:" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editText_weight"
@@ -167,22 +174,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="153dp"
-        android:layout_marginTop="489dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="194dp"
-        android:hint="Pounds (lbs)"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="524dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="159dp"
+        android:hint="Enter Weight"
         android:inputType="text"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/bmiLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginTop="620dp"
-        android:layout_centerHorizontal="true"
-        android:text="BMI:" />
+        android:textSize="21sp" />
 
     <TextView
         android:id="@+id/bmiValue"
@@ -191,8 +189,9 @@
         android:textSize="25dp"
         android:layout_marginTop="650dp"
         android:layout_centerHorizontal="true"
-        android:text=""
+        android:text="BMI"
         />
+
 
     <Button
         android:layout_width="50dp"
@@ -207,7 +206,9 @@
         android:layout_marginEnd="340dp"
         android:layout_marginBottom="623dp"
         android:background="@drawable/homeicon"
+        android:contentDescription="Navigate to the home page"
         android:onClick="onClickHomePage" />
+
 
     <Spinner
         android:id="@+id/spinner_menu"
@@ -224,6 +225,6 @@
         android:background="@drawable/spinner_drawable"
         android:spinnerMode="dropdown" />
 
-</RelativeLayout>
 
+</RelativeLayout>
 

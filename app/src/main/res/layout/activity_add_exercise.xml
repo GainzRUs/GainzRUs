@@ -47,14 +47,6 @@
             android:layout_height="wrap_content"
             android:text="Add Exercise" />
 
-        <!-- Save Workout Button -->
-        <Button
-            android:id="@+id/saveWorkoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save Workout" />
-
-
         <LinearLayout
             android:id="@+id/exerciseNamesLayout"
             android:layout_width="match_parent"
