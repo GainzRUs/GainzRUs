@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="Gainz RUs"
+        android:text="Gainz R Us"
         android:textColor="#3944bc"
         android:textSize="32sp"
         android:textStyle="bold" />
@@ -31,6 +31,14 @@
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/date_text_view"
+        android:layout_centerInParent="true"
+        android:background="#fff" />
+
 
     <TextView
         android:id="@+id/workoutType_text_view"
@@ -101,8 +109,8 @@
         android:id="@+id/button_user_settings"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:background="@drawable/ic_homepage_settings"
         android:contentDescription="Settings"
         android:onClick="onClickUserSettings" />

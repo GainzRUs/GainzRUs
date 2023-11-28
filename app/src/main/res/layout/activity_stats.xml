@@ -21,6 +21,15 @@
         android:textSize="32sp"
         android:textStyle="bold" />
 
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:background="@android:drawable/ic_menu_revert"
+        android:onClick="onClickHomePage"
+        />
+
     <TextView
         android:id="@+id/benchMax_text_view"
         android:layout_width="wrap_content"
@@ -28,6 +37,10 @@
         android:layout_below="@id/statsHeader_text_view"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="80dp"
+        android:shadowColor="#808080"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
         android:text="Bench:"
         android:textColor="#3944bc"
         android:textSize="32sp" />
@@ -51,6 +64,10 @@
         android:layout_below="@id/benchMax_text_view"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="80dp"
+        android:shadowColor="#808080"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
         android:text="Squat:"
         android:textColor="#3944bc"
         android:textSize="32sp" />
@@ -74,6 +91,10 @@
         android:layout_below="@id/squatMax_text_view"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="80dp"
+        android:shadowColor="#808080"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
         android:text="Deadlift:"
         android:textColor="#3944bc"
         android:textSize="32sp" />
