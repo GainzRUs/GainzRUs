@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Spinner;
 
 public class ProfileSetup extends AppCompatActivity {
     private Spinner spinner_menu;
