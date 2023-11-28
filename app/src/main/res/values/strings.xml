@@ -1,5 +1,9 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">Gainz-R-Us</string>
+=======
+    <string name="app_name">Gainz R Us</string>
+>>>>>>> profileEdits
 
     <string name="workouts">Menu</string>
     <string name="backgroundImage">ProfileBackground</string>
@@ -7,6 +11,16 @@
     <string name="SubmitProfName">ProfNameButton</string>
     <string name="Hint">UserEnterName</string>
     <string name="Enter_Name_Here">NameHint</string>
+    <string name="UserLabel" >Username:</string>
+    <string name="HeightLabel" >Height:</string>
+    <string name="WeightLabel" >Weight:</string>
+    <string name="FeetLabel" >Feet</string>
+    <string name="InchLabel" >Inches</string>
+    <string name="lbsLabel" >Pounds (lbs)</string>
+    <string name="userEx" >ex: Winton</string>
+    <string name="BackButtonDesc" >Back Button</string>
+    <string name="BMILabel" >BMI:</string>
+    <string name="DoneButton" >Done</string>
 
     <string-array name="dropdown_options_array">
         <item>StatsActivity</item>
