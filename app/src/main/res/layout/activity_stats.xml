@@ -21,6 +21,15 @@
         android:textSize="32sp"
         android:textStyle="bold" />
 
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:background="@android:drawable/ic_menu_revert"
+        android:onClick="onClickHomePage"
+        />
+
     <TextView
         android:id="@+id/benchMax_text_view"
         android:layout_width="wrap_content"

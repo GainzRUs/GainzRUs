@@ -3,6 +3,7 @@ package com.marke.gainzrus;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -31,5 +32,10 @@ public class Settings extends AppCompatActivity {
         // Create and show the AlertDialog
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+
+    public void onClickHomePage(View view){
+        Intent intent = new Intent(Settings.this, MainActivity.class);
+        startActivity(intent);
     }
 }
