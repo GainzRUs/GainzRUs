@@ -1,9 +1,5 @@
 <resources>
-<<<<<<< HEAD
-    <string name="app_name">Gainz-R-Us</string>
-=======
     <string name="app_name">Gainz R Us</string>
->>>>>>> profileEdits
 
     <string name="workouts">Menu</string>
     <string name="backgroundImage">ProfileBackground</string>
