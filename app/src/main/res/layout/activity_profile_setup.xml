@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,63 +15,72 @@
         android:contentDescription="@string/backgroundImage"
         android:src="@drawable/backgroundimage" />
 
+
     <ImageView
-        android:id="@+id/pfp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:contentDescription="@string/defaultProfileImage"
-        android:src="@drawable/profile"
-        android:text="Username:"
-        android:layout_marginTop="110dp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="453dp"
+        android:src="@drawable/profile" />
 
     <TextView
-        android:id="@+id/userText"
+        android:id="@+id/userLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:textSize="20dp"
+        android:layout_marginTop="310dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:text="Username:" />
+        android:text="Username:"
+        />
 
     <EditText
         android:id="@+id/editText_user_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="340dp"
+        android:textSize="20sp"
+        android:hint="Enter Username"
+        android:inputType="text" />
 
-        android:inputType="text"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:autofillHints="Enter user name:"
-
-        android:hint="Enter Username" />
 
     <Button
         android:id="@+id/button_add_user_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="550dp"
-        android:contentDescription="@string/SubmitProfName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="120dp"
         android:onClick="onClickAddUser"
         android:text="Done" />
+
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         />
+        />
 
     <TextView
         android:id="@+id/editTextText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:textSize="40dp"
+        android:textSize="50sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="#6487AA"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/app_name" />
 
 
@@ -77,8 +88,9 @@
         android:id="@+id/hLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:textSize="20dp"
+        android:layout_marginTop="395dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:text="Height:" />
 
@@ -87,8 +99,8 @@
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:textSize="20dp"
+        android:layout_marginTop="420dp"
+        android:textSize="20sp"
         android:hint="Enter Height"
         android:inputType="text" />
 
@@ -97,8 +109,9 @@
         android:id="@+id/wLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginTop="450dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="475dp"
         android:layout_centerHorizontal="true"
         android:text="Weight:" />
 
@@ -107,8 +120,8 @@
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginTop="480dp"
+        android:textSize="20sp"
+        android:layout_marginTop="500dp"
         android:hint="Enter Weight"
         android:inputType="text" />
 
@@ -116,7 +129,8 @@
         android:id="@+id/bmiLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_marginTop="620dp"
         android:layout_centerHorizontal="true"
         android:text="BMI:" />
@@ -125,20 +139,36 @@
         android:id="@+id/bmiValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_marginTop="650dp"
         android:layout_centerHorizontal="true"
         android:text=""
         />
 
     <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
-        android:background="@android:drawable/ic_menu_revert"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/homeicon2"
         android:onClick="onClickHomePage"
         />
+
+
+    <Spinner
+        android:id="@+id/spinner_menu"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="659dp"
+        android:background="@drawable/spinner_drawable"
+        android:spinnerMode="dropdown" />
 
 
 </RelativeLayout>
