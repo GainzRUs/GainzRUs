@@ -20,6 +20,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String EXERCISE_TABLE = "EXERCISE_TABLE";
     public static final String COLUMN_EXERCISE_ID = "EXERCISE_ID";
     public static final String COLUMN_EXERCISE_NAME = "EXERCISE_NAME";
+    public static final String COLUMN_EXERCISE_RATING = "EXERCISE_RATING";
 
     public static final String SETS_TABLE = "SETS_TABLE";
     public static final String COLUMN_SET_ID = "SET_ID";
@@ -29,7 +30,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_DATE_CREATED = "DATE_CREATED";
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "workout.db", null, 5);
+        super(context, "workout.db", null, 6);
     }
 
     @Override
@@ -38,7 +39,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         String createExerciseTableStatement = "CREATE TABLE " + EXERCISE_TABLE + " (" +
                 COLUMN_EXERCISE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_EXERCISE_NAME + " TEXT, " +
-                COLUMN_DATE_CREATED + " TEXT)"; // Add dateCreated column
+                COLUMN_EXERCISE_RATING + " TEXT, " +
+                COLUMN_DATE_CREATED + " TEXT)";
         db.execSQL(createExerciseTableStatement);
 
         // Create Sets Table
@@ -68,6 +70,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         ContentValues exerciseValues = new ContentValues();
         exerciseValues.put(COLUMN_EXERCISE_NAME, exercise.getExerciseName());
+        exerciseValues.put(COLUMN_EXERCISE_RATING, exercise.getExerciseRating());
         exerciseValues.put(COLUMN_DATE_CREATED, getCurrentDateTime());
         long exerciseId = db.insert(EXERCISE_TABLE, null, exerciseValues);
 
@@ -109,6 +112,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
                 columnIndex = cursor.getColumnIndex(COLUMN_EXERCISE_NAME);
                 String exerciseName = (columnIndex != -1) ? cursor.getString(columnIndex) : "";
+                columnIndex = cursor.getColumnIndex(COLUMN_EXERCISE_RATING);
+                String exerciseRating = (columnIndex != -1) ? cursor.getString(columnIndex) : "";
 
                 columnIndex = cursor.getColumnIndex(COLUMN_DATE_CREATED);
                 String dateCreated = (columnIndex != -1) ? cursor.getString(columnIndex) : "";
@@ -145,7 +150,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 }
                 setsCursor.close();
 
-                exercises.add(new Exercise(exerciseName,  parsedDate, exerciseSets));
+                exercises.add(new Exercise(exerciseName, exerciseRating, parsedDate, exerciseSets));
             } while (cursor.moveToNext());
         }
         cursor.close();
