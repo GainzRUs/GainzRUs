@@ -6,16 +6,25 @@
     android:layout_height="match_parent"
     android:background="#707d97">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background"
+        android:scaleType="centerInside" />
+
     <TextView
+
         android:id="@+id/appTitle_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:text="Gainz R Us"
-        android:textColor="#3944bc"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textSize="60sp"
+        />
 
 
     <TextView
@@ -24,8 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/appTitle_text_view"
         android:layout_centerInParent="true"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="100dp"
         android:ems="12"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Will not display when run."
         android:textColor="#000"
@@ -49,6 +59,7 @@
         android:ems="12"
         android:gravity="center"
         android:text="Will not display when run."
+        android:fontFamily="sans-serif-condensed-medium"
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold" />
