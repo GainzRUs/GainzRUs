@@ -1,5 +1,7 @@
 package com.marke.gainzrus;
 
+import static android.widget.Toast.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.Spinner;
 
 public class ProfileSetup extends AppCompatActivity {
@@ -61,7 +62,7 @@ public class ProfileSetup extends AppCompatActivity {
                         startActivity(option2Intent);
                         break;
                     case "Add Exercise":
-                        // Navigate to Activity related to Option 1
+                        // Navigate to Activity related to Option 3
                         Intent option3Intent = new Intent(ProfileSetup.this, AddExercise.class);
                         startActivity(option3Intent);
                         break;
@@ -74,11 +75,10 @@ public class ProfileSetup extends AppCompatActivity {
             }
         });
 
-
-
         findViews();
     }
 
+    // searches for/initializes values on profile screen
     private void findViews()
     {
         userNameText = findViewById(R.id.userValue);
@@ -89,6 +89,7 @@ public class ProfileSetup extends AppCompatActivity {
         userBMIText.setText("0.0");
     }
 
+    // calculates and returns BMI
     private double findBMI(EditText feet, EditText inch, EditText w){
         // conversion in pounds
         double height, weight;
@@ -102,14 +103,21 @@ public class ProfileSetup extends AppCompatActivity {
 
     }
 
+    // sets user(bodyBuilder) values
     public void onClickAddUser(View view) {
-        bodyBuilder.userName = userNameText.getText().toString();
-        Toast.makeText(this, bodyBuilder.userName + " saved", Toast.LENGTH_SHORT).show();
-        userNameText.getText().clear();
-
-        // added BMI stuff
+        // calculate BMI
         double BMI = findBMI(userFeetText, userInchText, userWeightText);
         userBMIText.setText(String.format("%.1f",BMI));
+
+        // setting body builder values
+        bodyBuilder.setAll(userNameText.getText().toString(),
+                String.valueOf(Double.parseDouble(userFeetText.getText().toString())*12 +
+                        Double.parseDouble(String.valueOf(userInchText.getText().toString()))),
+                userWeightText.getText().toString(),
+                userBMIText.getText().toString());
+
+
+        makeText(this, "User " + bodyBuilder.getUserName() + " saved", LENGTH_SHORT).show();
     }
 
     public void onClickHomePage(View view){
@@ -117,5 +125,4 @@ public class ProfileSetup extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-}
+} // end of class
