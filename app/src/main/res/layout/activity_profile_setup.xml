@@ -8,14 +8,14 @@
     android:layout_height="match_parent"
     android:background="#707d97">
 
+
     <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:contentDescription="@string/backgroundImage"
-        android:src="@drawable/backgroundimage" />
-
+        android:scaleType="center"
+        android:src="@drawable/profile_back" />
 
     <ImageView
         android:contentDescription="@string/defaultProfileImage"
@@ -79,11 +79,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:textSize="50sp"
+        android:textSize="60sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:textStyle="bold"
-        android:textColor="#6487AA"
+        android:textColor="#000"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/app_name"
         />
