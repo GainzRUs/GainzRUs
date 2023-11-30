@@ -5,7 +5,6 @@ import static android.widget.Toast.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,13 +14,13 @@ import android.widget.TextView;
 import android.widget.Spinner;
 
 public class ProfileSetup extends AppCompatActivity {
-    private Spinner spinner_menu;
     User bodyBuilder = new User();
     private EditText userNameText;
     private EditText userWeightText;
     private EditText userFeetText;
     private EditText userInchText;
     private TextView userBMIText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +29,7 @@ public class ProfileSetup extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile");
 
         // Find the Spinner view by its ID
-        spinner_menu = findViewById(R.id.spinner_menu);
+        Spinner spinner_menu = findViewById(R.id.spinner_menu);
 
         // Assuming these are the names of your activities or pages
         String[] pageNames = {"Profile", "Workout History", "Stats Activity","Add Exercise"};
@@ -86,7 +85,6 @@ public class ProfileSetup extends AppCompatActivity {
         userInchText = findViewById(R.id.heightInchValue);
         userWeightText = findViewById(R.id.weightValue);
         userBMIText = findViewById(R.id.bmiValue);
-        userBMIText.setText("0.0");
     }
 
     // calculates and returns BMI
@@ -105,6 +103,7 @@ public class ProfileSetup extends AppCompatActivity {
 
     // sets user(bodyBuilder) values
     public void onClickAddUser(View view) {
+
         // calculate BMI
         double BMI = findBMI(userFeetText, userInchText, userWeightText);
         userBMIText.setText(String.format("%.1f",BMI));
@@ -112,12 +111,15 @@ public class ProfileSetup extends AppCompatActivity {
         // setting body builder values
         bodyBuilder.setAll(userNameText.getText().toString(),
                 String.valueOf(Double.parseDouble(userFeetText.getText().toString())*12 +
-                        Double.parseDouble(String.valueOf(userInchText.getText().toString()))),
+                        Double.parseDouble((userInchText.getText().toString()))),
                 userWeightText.getText().toString(),
                 userBMIText.getText().toString());
 
 
+        // notification of profile saved
         makeText(this, "User " + bodyBuilder.getUserName() + " saved", LENGTH_SHORT).show();
+
+        findViews();
     }
 
     public void onClickHomePage(View view){

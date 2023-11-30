@@ -25,13 +25,14 @@
         android:src="@drawable/profile"
         />
 
+
     <TextView
         android:id="@+id/userLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="290dp"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:text="@string/UserLabel" />
 
@@ -46,38 +47,6 @@
         android:autofillHints=""
         android:hint="@string/userEx" />
 
-    <Button
-        android:id="@+id/button_add_user_info"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="560dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickAddUser"
-        android:text="@string/DoneButton" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="550dp"
-        android:background="#3944bc"
-        android:contentDescription="@string/SubmitProfName" />
-
-    <!--
-    <TextView
-        android:id="@+id/appTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:textStyle="bold"
-        android:textColor="#6487AA"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/app_name"
-        />
-    -->
 
     <TextView
         android:id="@+id/hLabel"
@@ -91,10 +60,10 @@
 
     <TextView
         android:id="@+id/centerHold"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="430dp"
         />
 
     <EditText
@@ -106,7 +75,8 @@
         android:layout_toStartOf="@id/centerHold"
         android:autofillHints=""
         android:hint="@string/FeetLabel"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        />
 
     <EditText
         android:id="@+id/heightInchValue"
@@ -147,18 +117,44 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="630dp"
-        android:layout_centerHorizontal="true"
+        android:layout_toStartOf="@id/BMIHold"
         android:text="@string/BMILabel" />
+
+    <TextView
+        android:id="@+id/BMIHold"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="630dp"
+        />
 
     <TextView
         android:id="@+id/bmiValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:layout_marginTop="670dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="625dp"
+        android:layout_toEndOf="@id/BMIHold"
         android:text=""
         />
+
+    <Button
+        android:id="@+id/button_add_user_info"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="560dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickAddUser"
+        android:text="@string/DoneButton" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="550dp"
+        android:background="#3944bc"
+        android:contentDescription="@string/SubmitProfName" />
 
     <Button
         android:layout_width="50dp"
@@ -176,10 +172,7 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="659dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/spinner_drawable"
         android:spinnerMode="dropdown" />
 
