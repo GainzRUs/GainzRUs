@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="#707d97">
 
+
     <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:contentDescription="@string/backgroundImage"
-        android:src="@drawable/backgroundimage" />
-
+        android:scaleType="center"
+        android:src="@drawable/profile_back" />
 
     <ImageView
         android:id="@+id/pfp"
@@ -48,67 +48,7 @@
         android:hint="@string/userEx" />
 
 
-    <TextView
-        android:id="@+id/hLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:text="@string/HeightLabel" />
 
-    <TextView
-        android:id="@+id/centerHold"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
-        />
-
-    <EditText
-        android:id="@+id/heightFeetValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="410dp"
-        android:textSize="22sp"
-        android:layout_toStartOf="@id/centerHold"
-        android:autofillHints=""
-        android:hint="@string/FeetLabel"
-        android:inputType="numberDecimal"
-        />
-
-    <EditText
-        android:id="@+id/heightInchValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/centerHold"
-        android:layout_marginTop="410dp"
-        android:textSize="22sp"
-        android:hint="@string/InchLabel"
-        android:autofillHints=""
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/wLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="470dp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/WeightLabel" />
-
-    <EditText
-        android:id="@+id/weightValue"
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:layout_marginTop="500dp"
-        android:hint="@string/lbsLabel"
-        android:autofillHints=""
-        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/bmiLabel"
@@ -155,6 +95,82 @@
         android:layout_marginTop="550dp"
         android:background="#3944bc"
         android:contentDescription="@string/SubmitProfName" />
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="60sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/app_name"
+        />
+
+    <TextView
+        android:id="@+id/hLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:text="@string/HeightLabel" />
+
+    <TextView
+        android:id="@+id/centerHold"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="380dp"
+        />
+
+    <EditText
+        android:id="@+id/heightFeetValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:textSize="22dp"
+        android:layout_toLeftOf="@id/centerHold"
+        android:autofillHints=""
+        android:hint="@string/FeetLabel"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/heightInchValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/centerHold"
+        android:layout_marginTop="420dp"
+        android:textSize="22sp"
+        android:hint="@string/InchLabel"
+        android:autofillHints=""
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/wLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="475dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/WeightLabel" />
+
+    <EditText
+        android:id="@+id/weightValue"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:layout_marginTop="500dp"
+        android:hint="@string/lbsLabel"
+        android:autofillHints=""
+        android:inputType="numberDecimal" />
+
 
     <Button
         android:layout_width="50dp"
