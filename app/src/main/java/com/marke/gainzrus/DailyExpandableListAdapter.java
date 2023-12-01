@@ -100,13 +100,27 @@ public class DailyExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView listItem = convertView.findViewById(R.id.listItem);
         WorkoutWithExercises workout = (WorkoutWithExercises) getChild(groupPosition, childPosition);
+
         if (workout != null) {
-            // Set appropriate text based on workout details
-            listItem.setText("Workout ID: " + workout.getWorkoutId());
+            StringBuilder exerciseDetails = new StringBuilder();
+
+            // Iterate through exercises and append details
+            for (Exercise exercise : workout.getExercises()) {
+                exerciseDetails.append("Exercise: ").append(exercise.getExerciseName()).append("\n");
+
+                // Iterate through sets and append details
+                for (ExerciseSet set : exercise.getExerciseSets()) {
+                    exerciseDetails.append("  Set: Reps=").append(set.getNumberOfReps()).append(", Weight=").append(set.getWeight()).append("\n");
+                }
+            }
+
+            // Set the text with exercise details
+            listItem.setText(exerciseDetails.toString());
         }
 
         return convertView;
     }
+
 
 
     @Override
