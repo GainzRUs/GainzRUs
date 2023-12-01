@@ -54,6 +54,11 @@
             android:layout_height="wrap_content"
             android:text="Add Exercise" />
 
+        <Button
+            android:id="@+id/finishWorkoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finish Workout" />
         <LinearLayout
             android:id="@+id/exerciseNamesLayout"
             android:layout_width="match_parent"

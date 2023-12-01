@@ -12,10 +12,14 @@ import android.widget.NumberPicker;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Date;
+
 
 public class AddExercise extends AppCompatActivity {
     private LinearLayout setsContainer;
     private LinearLayout exerciseNamesLayout;
+    private long currentWorkoutId;
+    private Button finishWorkoutButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,7 @@ public class AddExercise extends AppCompatActivity {
         exerciseNamesLayout = findViewById(R.id.exerciseNamesLayout);
         NumberPicker setsNumberPicker = findViewById(R.id.setsNumberPicker);
         Button addExerciseButton = findViewById(R.id.addExerciseButton);
-
+        Button finishWorkoutButton = findViewById(R.id.finishWorkoutButton);
         // Set the minimum and maximum values
         setsNumberPicker.setMinValue(1);
         setsNumberPicker.setMaxValue(10);
@@ -68,7 +72,7 @@ public class AddExercise extends AppCompatActivity {
                 Exercise exercise = createExerciseFromInput(exerciseNameSpinner, exerciseRatingSpinner, setsNumberPicker, setsContainer);
 
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(AddExercise.this);
-                boolean b = dataBaseHelper.addExerciseWithSets(exercise);
+                boolean b = dataBaseHelper.addExerciseWithSets(currentWorkoutId, exercise);
                 Toast.makeText(AddExercise.this, "sucess" + b, Toast.LENGTH_SHORT).show();
                 // Add the exercise to the ExerciseManager
                 ExerciseManager.getInstance().addExercise(exercise);
@@ -83,9 +87,67 @@ public class AddExercise extends AppCompatActivity {
         });
 
 
+        finishWorkoutButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                // Finish the workout and insert the workout details into the database
+                finishWorkout();
+            }
+        });
+
+        currentWorkoutId = -1;
+
+        startNewWorkout();
+
         LinearLayout exerciseNamesLayout = findViewById(R.id.exerciseNamesLayout); // Reference to the LinearLayout in your XML
 
 
+    }
+
+    private void startNewWorkout() {
+        // Initialize the current workout ID and date
+        currentWorkoutId = generateWorkoutId();
+    }
+
+    private void finishWorkout() {
+        // Check if there are exercises added to the workout
+        if (ExerciseManager.getInstance().getExerciseList().isEmpty()) {
+            Toast.makeText(this, "No exercises added to the workout.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Create a new workout and populate it with user input
+        Workout workout = createWorkoutFromInput();
+
+        // Insert the workout into the database
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(AddExercise.this);
+        boolean success = dataBaseHelper.addWorkout(workout);
+
+        if (success) {
+            Toast.makeText(AddExercise.this, "Workout finished successfully", Toast.LENGTH_SHORT).show();
+
+            // Clear the ExerciseManager
+            ExerciseManager.getInstance().clearExerciseList();
+
+            // Start a new workout
+            startNewWorkout();
+        } else {
+            Toast.makeText(AddExercise.this, "Failed to finish the workout", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private int generateWorkoutId() {
+        // Generate a unique workout ID (you can implement your logic for generating IDs)
+        return (int) System.currentTimeMillis();
+    }
+
+    private Workout createWorkoutFromInput() {
+        // Create a new workout and populate it with user input
+        Workout workout = new Workout();
+        workout.setWorkoutId(currentWorkoutId);  // Set the workout ID
+        workout.setWorkoutRating("5");  // Assuming a default rating of "5" for simplicity
+        workout.setWorkoutDate(new Date());  // Set the current date as the workout date
+
+        return workout;
     }
     private Exercise createExerciseFromInput(Spinner exerciseNameSpinner, Spinner exerciseRatingSpinner, NumberPicker setsNumberPicker, LinearLayout setsContainer) {
         String exerciseName = exerciseNameSpinner.getSelectedItem().toString();
@@ -94,7 +156,7 @@ public class AddExercise extends AppCompatActivity {
         int sets = setsNumberPicker.getValue();
 
         // Create an Exercise object and populate it
-        Exercise exercise = new Exercise(exerciseName, exerciseRating);
+        Exercise exercise = new Exercise(exerciseName);
 
         // Populate sets' details (reps, weight) as needed
         for (int i = 0; i < sets; i++) {
