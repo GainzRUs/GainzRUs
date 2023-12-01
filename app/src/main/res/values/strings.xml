@@ -13,7 +13,7 @@
     <string name="FeetLabel" >Feet</string>
     <string name="InchLabel" >Inches</string>
     <string name="lbsLabel" >Pounds (lbs)</string>
-    <string name="userEx" >ex: Winton</string>
+    <string name="userEx" >ex: Mark</string>
     <string name="BackButtonDesc" >Back Button</string>
     <string name="BMILabel" >BMI:</string>
     <string name="DoneButton" >Done</string>

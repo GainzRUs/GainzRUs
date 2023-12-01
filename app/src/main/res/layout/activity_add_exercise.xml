@@ -19,13 +19,12 @@
             android:spinnerMode="dropdown" />
 
         <!-- Exercise Input Fields -->
+        <Spinner
+            android:id="@+id/exerciseNameSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"/>
 
-        <EditText
-            android:id="@+id/exerciseNameEditText"
-            android:hint="Exercise Name"
-            android:layout_width="300dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="48dp" />
 
         <NumberPicker
             android:id="@+id/setsNumberPicker"
@@ -50,6 +49,12 @@
             android:text="Saved Exercises:"
             android:textSize="16sp"
             android:padding="8dp" />
+
+        <Spinner
+            android:id="@+id/workoutRatingSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
 
         <!-- Add Exercise Button -->
         <Button

@@ -2,8 +2,6 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#707d97">
@@ -18,50 +16,74 @@
         android:src="@drawable/profile_back" />
 
     <ImageView
+        android:id="@+id/pfp"
         android:contentDescription="@string/defaultProfileImage"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="2dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="116dp"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="453dp"
         android:src="@drawable/profile"
         />
+
 
     <TextView
         android:id="@+id/userLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="310dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="290dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_centerHorizontal="true"
         android:text="@string/UserLabel" />
 
     <EditText
         android:id="@+id/userValue"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp"
         android:textSize="22sp"
         android:inputType="text"
         android:autofillHints=""
         android:hint="@string/userEx" />
 
-    <Button
-        android:id="@+id/button_add_user_info"
+
+
+
+    <TextView
+        android:id="@+id/bmiLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="630dp"
+        android:layout_toStartOf="@id/BMIHold"
+        android:text="@string/BMILabel" />
+
+    <TextView
+        android:id="@+id/BMIHold"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="630dp"
+        />
+
+    <TextView
+        android:id="@+id/bmiValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginTop="625dp"
+        android:layout_toEndOf="@id/BMIHold"
+        android:text=""
+        />
+
+    <Button
+        android:id="@+id/button_add_user_info"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="560dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginEnd="120dp"
+        android:layout_centerHorizontal="true"
         android:onClick="onClickAddUser"
         android:text="@string/DoneButton" />
 
@@ -149,25 +171,6 @@
         android:autofillHints=""
         android:inputType="numberDecimal" />
 
-    <TextView
-        android:id="@+id/bmiLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="620dp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/BMILabel" />
-
-    <TextView
-        android:id="@+id/bmiValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:layout_marginTop="650dp"
-        android:layout_centerHorizontal="true"
-        android:text=""
-        />
 
     <Button
         android:layout_width="50dp"
@@ -175,7 +178,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/homeicon2"
-        android:id="@+id/backButton"
         android:onClick="onClickHomePage"
         android:contentDescription="@string/BackButtonDesc"
         />
@@ -184,15 +186,9 @@
     <Spinner
         android:id="@+id/spinner_menu"
         android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="659dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:background="@drawable/spinner_drawable"
         android:spinnerMode="dropdown" />
 

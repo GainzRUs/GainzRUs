@@ -33,13 +33,29 @@ public class AddExercise extends AppCompatActivity {
         exerciseNamesLayout = findViewById(R.id.exerciseNamesLayout);
         NumberPicker setsNumberPicker = findViewById(R.id.setsNumberPicker);
         Button addExerciseButton = findViewById(R.id.addExerciseButton);
-        EditText exerciseNameEditText = findViewById(R.id.exerciseNameEditText);
+
         // Set the minimum and maximum values
         setsNumberPicker.setMinValue(1);
         setsNumberPicker.setMaxValue(10);
 
         // Set the default value
         setsNumberPicker.setValue(1);
+
+        Spinner exerciseNameSpinner = findViewById(R.id.exerciseNameSpinner);
+        Spinner exerciseRatingSpinner = findViewById(R.id.workoutRatingSpinner);
+// Create an array of pre-selected exercise names
+        String[] exerciseNames = {"Exercise 1", "Exercise 2", "Exercise 3"};
+        String[] workoutRatings = {"✅", "👍", "🙂", "😕", "😡"};
+
+
+// Set up the adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, exerciseNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        exerciseNameSpinner.setAdapter(adapter);
+
+        ArrayAdapter<String> ratingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, workoutRatings);
+        ratingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        exerciseRatingSpinner.setAdapter(ratingAdapter);
 
         setsNumberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
@@ -55,9 +71,9 @@ public class AddExercise extends AppCompatActivity {
         String[] pageNames = {"Add Exercise", "Workout History", "Stats Activity", "Profile"};
 
         // Initialize the Spinner with page names
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_menu.setAdapter(adapter);
+        spinner_menu.setAdapter(adapter2);
 
         // Set listener for Spinner item selection
         spinner_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -95,17 +111,15 @@ public class AddExercise extends AppCompatActivity {
 
             public void onClick(View view) {
                 // Create a new exercise and populate it with user input
-                Exercise exercise = createExerciseFromInput(exerciseNameEditText, setsNumberPicker, setsContainer);
+                Exercise exercise = createExerciseFromInput(exerciseNameSpinner, exerciseRatingSpinner, setsNumberPicker, setsContainer);
 
                 DataBaseHelper dataBaseHelper = new DataBaseHelper(AddExercise.this);
-
                 boolean b = dataBaseHelper.addExerciseWithSets(exercise);
                 Toast.makeText(AddExercise.this, "sucess" + b, Toast.LENGTH_SHORT).show();
                 // Add the exercise to the ExerciseManager
                 ExerciseManager.getInstance().addExercise(exercise);
 
-                // Clear the input fields
-                clearInputFields(exerciseNameEditText);
+
 
                 // Update the UI by adding a TextView with the exercise name
                 addExerciseToUI(exercise);
@@ -119,12 +133,14 @@ public class AddExercise extends AppCompatActivity {
 
 
     }
-    private Exercise createExerciseFromInput(EditText exerciseNameEditText, NumberPicker setsNumberPicker, LinearLayout setsContainer) {
-        String exerciseName = exerciseNameEditText.getText().toString();
+    private Exercise createExerciseFromInput(Spinner exerciseNameSpinner, Spinner exerciseRatingSpinner, NumberPicker setsNumberPicker, LinearLayout setsContainer) {
+        String exerciseName = exerciseNameSpinner.getSelectedItem().toString();
+        String exerciseRating = exerciseRatingSpinner.getSelectedItem().toString();
+
         int sets = setsNumberPicker.getValue();
 
         // Create an Exercise object and populate it
-        Exercise exercise = new Exercise(exerciseName);
+        Exercise exercise = new Exercise(exerciseName, exerciseRating);
 
         // Populate sets' details (reps, weight) as needed
         for (int i = 0; i < sets; i++) {
@@ -132,10 +148,10 @@ public class AddExercise extends AppCompatActivity {
             // Add a new ExerciseSet to the exercise with the retrieved values
             // For example:
             View setView = setsContainer.getChildAt(i);
-            Toast.makeText(this, "here", Toast.LENGTH_SHORT).show(); // we make it here
+
             if (setView instanceof LinearLayout) {
                 LinearLayout dynamicSetContainer = (LinearLayout) setView;
-                Toast.makeText(this, "here", Toast.LENGTH_SHORT).show(); // we do not make it here
+
                 if (dynamicSetContainer.getChildCount() == 2) {
                     EditText repsEditText = (EditText) dynamicSetContainer.getChildAt(0);
                     EditText weightEditText = (EditText) dynamicSetContainer.getChildAt(1);
@@ -172,10 +188,7 @@ public class AddExercise extends AppCompatActivity {
             setsContainer.addView(dynamicSetContainer);
         }
     }
-    private void clearInputFields(EditText exerciseNameEditText) {
-        exerciseNameEditText.setText("");
-        // Clear other input fields as needed
-    }
+
     private void updateExerciseNamesLayout(LinearLayout exerciseNamesLayout) {
         for (Exercise exercise : ExerciseManager.getInstance().getExerciseList()) {
             // Create a TextView for the exercise name
