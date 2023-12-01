@@ -1,7 +1,10 @@
 package com.marke.gainzrus;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -15,6 +18,8 @@ import android.widget.Toast;
 
 public class AddExercise extends AppCompatActivity {
     private LinearLayout setsContainer;
+
+    private Spinner spinner_menu;
     private LinearLayout exerciseNamesLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,47 @@ public class AddExercise extends AppCompatActivity {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 updateInputFields(newVal);
+            }
+        });
+
+        // Find the Spinner view by its ID
+        spinner_menu = findViewById(R.id.spinner_menu);
+
+        // Assuming these are the names of your activities or pages
+        String[] pageNames = {"Add Exercise", "Workout History", "Stats Activity", "Profile"};
+
+        // Initialize the Spinner with page names
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_menu.setAdapter(adapter2);
+
+        // Set listener for Spinner item selection
+        spinner_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+
+                // Perform actions based on the selected item
+                switch (selectedItem) {
+                    case "Stats Activity":
+                        Intent option1Intent = new Intent(AddExercise.this, StatsActivity.class);
+                        startActivity(option1Intent);
+                        break;
+                    case "Workout History":
+                        Intent option2Intent = new Intent(AddExercise.this, WorkoutHistory.class);
+                        startActivity(option2Intent);
+                        break;
+                    case "Profile":
+                        Intent option3Intent = new Intent(AddExercise.this, ProfileSetup.class);
+                        startActivity(option3Intent);
+                        break;
+                    // Add cases for other items if needed
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle the case where nothing is selected
             }
         });
 
