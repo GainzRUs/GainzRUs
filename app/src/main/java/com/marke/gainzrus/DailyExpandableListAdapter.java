@@ -79,13 +79,15 @@ public class DailyExpandableListAdapter extends BaseExpandableListAdapter {
 
         // Assuming each workout has the same rating, you can get it from the first workout
         List<WorkoutWithExercises> workouts = organizedWorkouts.get(dateLabel);
-        String rating = "N/A"; // Default value if no workouts or ratings are available
 
-        if (workouts != null && !workouts.isEmpty()) {
-            rating = workouts.get(0).getWorkoutRating();
+        // Concatenate all ratings
+        StringBuilder ratingsBuilder = new StringBuilder();
+        for (WorkoutWithExercises workout : workouts) {
+            ratingsBuilder.append(workout.getWorkoutRating()).append(" ");
         }
 
-        listHeader.setText(dateLabel + " " + rating);
+        // Set the text with concatenated ratings
+        listHeader.setText("    " + dateLabel + " " + ratingsBuilder.toString());
 
         return convertView;
     }

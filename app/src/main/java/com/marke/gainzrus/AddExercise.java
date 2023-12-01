@@ -48,7 +48,7 @@ public class AddExercise extends AppCompatActivity {
         Spinner exerciseNameSpinner = findViewById(R.id.exerciseNameSpinner);
         Spinner exerciseRatingSpinner = findViewById(R.id.workoutRatingSpinner);
 // Create an array of pre-selected exercise names
-        String[] exerciseNames = {"Exercise 1", "Exercise 2", "Exercise 3"};
+        String[] exerciseNames = {"Bench Press", "Squat", "Dead Lift", "Lateral Rows", "Shoulder Press"};
         String[] workoutRatings = {"✅", "👍", "🙂", "😕", "😡"};
 
 
