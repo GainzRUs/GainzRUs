@@ -3,12 +3,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/stats_bg_image">
 
     <nl.dionsegijn.konfetti.xml.KonfettiView
         android:id="@+id/konfettiView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <Spinner
+        android:id="@+id/spinner_menu"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/spinner_drawable"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:id="@+id/statsHeader_text_view"
@@ -17,18 +27,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
         android:text="Your personal best:"
-        android:textColor="#3944bc"
+        android:textColor="#fff"
         android:textSize="32sp"
         android:textStyle="bold" />
 
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="15dp"
-        android:background="@android:drawable/ic_menu_revert"
-        android:onClick="onClickHomePage"
-        />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/homeicon2"
+        android:contentDescription="@string/BackButtonDesc"
+        android:onClick="onClickHomePage" />
 
     <TextView
         android:id="@+id/benchMax_text_view"
@@ -42,7 +52,7 @@
         android:shadowDy="2"
         android:shadowRadius="3"
         android:text="Bench:"
-        android:textColor="#3944bc"
+        android:textColor="#fff"
         android:textSize="32sp" />
 
     <TextView
@@ -69,7 +79,7 @@
         android:shadowDy="2"
         android:shadowRadius="3"
         android:text="Squat:"
-        android:textColor="#3944bc"
+        android:textColor="#fff"
         android:textSize="32sp" />
 
     <TextView
@@ -96,7 +106,7 @@
         android:shadowDy="2"
         android:shadowRadius="3"
         android:text="Deadlift:"
-        android:textColor="#3944bc"
+        android:textColor="#fff"
         android:textSize="32sp" />
 
     <TextView
@@ -118,7 +128,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="#3944bc"
+        android:backgroundTint="#000"
         android:text="Keep up the good work!"
         android:textSize="16dp" />
 
