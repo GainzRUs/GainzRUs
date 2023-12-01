@@ -136,7 +136,7 @@ public class AddExercise extends AppCompatActivity {
         finishWorkoutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 // Finish the workout and insert the workout details into the database
-                finishWorkout();
+                finishWorkout(exerciseRatingSpinner);
             }
         });
 
@@ -154,7 +154,7 @@ public class AddExercise extends AppCompatActivity {
         currentWorkoutId = generateWorkoutId();
     }
 
-    private void finishWorkout() {
+    private void finishWorkout(Spinner exerciseRatingSpinner) {
         // Check if there are exercises added to the workout
         if (ExerciseManager.getInstance().getExerciseList().isEmpty()) {
             Toast.makeText(this, "No exercises added to the workout.", Toast.LENGTH_SHORT).show();
@@ -162,7 +162,7 @@ public class AddExercise extends AppCompatActivity {
         }
 
         // Create a new workout and populate it with user input
-        Workout workout = createWorkoutFromInput();
+        Workout workout = createWorkoutFromInput(exerciseRatingSpinner);
 
         // Insert the workout into the database
         DataBaseHelper dataBaseHelper = new DataBaseHelper(AddExercise.this);
@@ -186,11 +186,12 @@ public class AddExercise extends AppCompatActivity {
         return (int) System.currentTimeMillis();
     }
 
-    private Workout createWorkoutFromInput() {
+    private Workout createWorkoutFromInput(Spinner workoutRatingSpinner) {
         // Create a new workout and populate it with user input
         Workout workout = new Workout();
         workout.setWorkoutId(currentWorkoutId);  // Set the workout ID
-        workout.setWorkoutRating("5");  // Assuming a default rating of "5" for simplicity
+        String selectedRating = workoutRatingSpinner.getSelectedItem().toString();
+        workout.setWorkoutRating(selectedRating);
         workout.setWorkoutDate(new Date());  // Set the current date as the workout date
 
         return workout;
