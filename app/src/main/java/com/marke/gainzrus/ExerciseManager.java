@@ -24,4 +24,8 @@ public class ExerciseManager {
         exerciseList.add(exercise);
     }
 
+    public void clearExerciseList() {
+        exerciseList.clear();
+    }
+
 }

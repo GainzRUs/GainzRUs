@@ -3,7 +3,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/setting_bg_image">
+
+    <Spinner
+        android:id="@+id/spinner_menu"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/spinner_drawable"
+        android:spinnerMode="dropdown" />
 
     <Button
         android:id="@+id/clear_data_button"
@@ -14,16 +24,16 @@
         android:backgroundTint="#ff0e0e"
         android:onClick="onClickClearData"
         android:text="Clear all data"
-        android:textSize="16dp" />
+        android:textSize="28dp" />
 
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="15dp"
-        android:background="@android:drawable/ic_menu_revert"
-        android:onClick="onClickHomePage"
-        />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/homeicon2"
+        android:contentDescription="@string/BackButtonDesc"
+        android:onClick="onClickHomePage" />
 
 
 </RelativeLayout>

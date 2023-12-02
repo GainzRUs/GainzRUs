@@ -9,6 +9,15 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+
+        <Spinner
+            android:id="@+id/spinner_menu"
+            android:layout_width="208dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/spinner_drawable"
+            android:spinnerMode="dropdown" />
+
         <!-- Exercise Input Fields -->
         <Spinner
             android:id="@+id/exerciseNameSpinner"
@@ -23,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:value="1"
-            android:layout_marginTop="16dp" />
+             />
         <LinearLayout
             android:id="@+id/setsContainer"
             android:layout_width="match_parent"
@@ -54,11 +63,17 @@
             android:layout_height="wrap_content"
             android:text="Add Exercise" />
 
+        <Button
+            android:id="@+id/finishWorkoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finish Workout" />
         <LinearLayout
             android:id="@+id/exerciseNamesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
