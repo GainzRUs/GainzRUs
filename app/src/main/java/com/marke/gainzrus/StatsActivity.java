@@ -86,7 +86,7 @@ public class StatsActivity extends AppCompatActivity {
             String exerciseName = exercise.getExerciseName().trim();
 
             // if exercise isn't one of these go to next exercise in database
-            if (!(Objects.equals(exerciseName, "Bench") || Objects.equals(exerciseName, "Squat") || Objects.equals(exerciseName, "DeadLift"))) {
+            if (!(Objects.equals(exerciseName, "Bench Press") || Objects.equals(exerciseName, "Squat") || Objects.equals(exerciseName, "Dead Lift"))) {
                 continue;
             }
 
@@ -100,7 +100,7 @@ public class StatsActivity extends AppCompatActivity {
                 int reps = exerciseSet.getNumberOfReps();
 
                 // compare weight with current max
-                if (Objects.equals(exerciseName, "Bench")) {
+                if (Objects.equals(exerciseName, "Bench Press")) {
                     if (weight > benchMax) {
                         benchMax = weight;
                         benchReps = reps;
@@ -110,7 +110,7 @@ public class StatsActivity extends AppCompatActivity {
                         squatMax = weight;
                         squatReps = reps;
                     }
-                } else if (Objects.equals(exerciseName, "DeadLift")) {
+                } else if (Objects.equals(exerciseName, "Dead Lift")) {
                     if (weight > deadliftMax) {
                         deadliftMax = weight;
                         deadliftReps = reps;
