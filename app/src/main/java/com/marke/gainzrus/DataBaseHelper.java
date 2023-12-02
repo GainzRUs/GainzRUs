@@ -36,11 +36,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_WORKOUT_DATE = "WORKOUT_DATE";
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "workout.db", null, 7);
+        super(context, "workout.db", null, 10);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+
         //create the workout table
         String createWorkoutTableStatement = "CREATE TABLE " + WORKOUT_TABLE + " (" +
                 COLUMN_WORKOUT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -71,7 +73,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 // Drop existing tables
         db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + SETS_TABLE);
-
+        db.execSQL("DROP TABLE IF EXISTS " + WORKOUT_TABLE);
         // Recreate tables
         onCreate(db);
     }
@@ -183,4 +185,67 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM " + SETS_TABLE);
         db.execSQL("VACUUM");
     }
+
+    public List<WorkoutWithExercises> getAllWorkoutsWithExercises() {
+        List<WorkoutWithExercises> workoutsWithExercises = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Query to retrieve all workouts
+        String workoutsQuery = "SELECT * FROM " + WORKOUT_TABLE;
+        Cursor workoutsCursor = db.rawQuery(workoutsQuery, null);
+
+        while (workoutsCursor.moveToNext()) {
+            // Retrieve workout details
+            int workoutIdIndex = workoutsCursor.getColumnIndex(COLUMN_WORKOUT_ID);
+            int workoutRatingIndex = workoutsCursor.getColumnIndex(COLUMN_WORKOUT_RATING);
+            int workoutDateIndex = workoutsCursor.getColumnIndex(COLUMN_WORKOUT_DATE);
+
+            int workoutId = (workoutIdIndex != -1) ? workoutsCursor.getInt(workoutIdIndex) : -1;
+            String workoutRating = (workoutRatingIndex != -1) ? workoutsCursor.getString(workoutRatingIndex) : "";
+            String workoutDate = (workoutDateIndex != -1) ? workoutsCursor.getString(workoutDateIndex) : "";
+
+            // Query to retrieve exercises for the current workout
+            String exercisesQuery = "SELECT * FROM " + EXERCISE_TABLE +
+                    " WHERE " + COLUMN_WORKOUT_ID_FK + " = ?";
+            Cursor exercisesCursor = db.rawQuery(exercisesQuery, new String[]{String.valueOf(workoutId)});
+
+            List<Exercise> exercises = new ArrayList<>();
+            while (exercisesCursor.moveToNext()) {
+                // Retrieve exercise details
+                int exerciseIdIndex = exercisesCursor.getColumnIndex(COLUMN_EXERCISE_ID);
+                int exerciseNameIndex = exercisesCursor.getColumnIndex(COLUMN_EXERCISE_NAME);
+
+                int exerciseId = (exerciseIdIndex != -1) ? exercisesCursor.getInt(exerciseIdIndex) : -1;
+                String exerciseName = (exerciseNameIndex != -1) ? exercisesCursor.getString(exerciseNameIndex) : "";
+
+                // Query to retrieve sets for the current exercise
+                String setsQuery = "SELECT * FROM " + SETS_TABLE +
+                        " WHERE " + COLUMN_EXERCISE_ID_FK + " = ?";
+                Cursor setsCursor = db.rawQuery(setsQuery, new String[]{String.valueOf(exerciseId)});
+
+                List<ExerciseSet> exerciseSets = new ArrayList<>();
+                while (setsCursor.moveToNext()) {
+                    // Retrieve set details
+                    int repsIndex = setsCursor.getColumnIndex(COLUMN_NUMBER_OF_REPS);
+                    int weightIndex = setsCursor.getColumnIndex(COLUMN_WEIGHT);
+
+                    int reps = (repsIndex != -1) ? setsCursor.getInt(repsIndex) : 0;
+                    double weight = (weightIndex != -1) ? setsCursor.getDouble(weightIndex) : 0.0;
+
+                    exerciseSets.add(new ExerciseSet(reps, weight));
+                }
+                setsCursor.close();
+
+                exercises.add(new Exercise(exerciseName, exerciseSets));
+            }
+            exercisesCursor.close();
+
+            workoutsWithExercises.add(new WorkoutWithExercises(workoutId, workoutRating, workoutDate, exercises));
+        }
+        workoutsCursor.close();
+
+        return workoutsWithExercises;
+    }
+
+
 }
