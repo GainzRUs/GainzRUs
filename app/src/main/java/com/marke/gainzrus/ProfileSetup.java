@@ -4,6 +4,7 @@ import static android.widget.Toast.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,8 +32,8 @@ public class ProfileSetup extends AppCompatActivity {
         // Find the Spinner view by its ID
         Spinner spinner_menu = findViewById(R.id.spinner_menu);
 
-        // Assuming these are the names of your activities or pages
-        String[] pageNames = {"Profile", "Workout History", "Stats Activity","Add Exercise", "Settings"};
+        // Assuming these are the names of your activities or pages 
+        String[] pageNames = {"Profile", "Workout History", "Stats Activity","Add Exercise", "Workout Plan", "Settings"};
 
         // Find the Spinner view by its ID
         spinner_menu = findViewById(R.id.spinner_menu);
@@ -65,10 +66,16 @@ public class ProfileSetup extends AppCompatActivity {
                         Intent option3Intent = new Intent(ProfileSetup.this, AddExercise.class);
                         startActivity(option3Intent);
                         break;
+
+                    case "Workout Plan":
+                        // Navigate to Activity related to Option 4
+                        Intent option4Intent = new Intent(ProfileSetup.this, WorkoutPlan.class);
+
                     case "Settings":
-                        // Navigate to Activity related to Option 3
-                        Intent option4Intent = new Intent(ProfileSetup.this, Settings.class);
-                        startActivity(option4Intent);
+                        // Navigate to Activity related to Option 5
+                        Intent option5Intent = new Intent(ProfileSetup.this, Settings.class);
+
+                        startActivity(option5Intent);
                         break;
                 }
             }
