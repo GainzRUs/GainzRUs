@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void onClickUserProfile(View view) {
         Intent intent = new Intent(MainActivity.this, ProfileSetup.class);
         startActivity(intent);
@@ -102,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, AddExercise.class);
         startActivity(intent);
     }
+
+    public void onWorkoutPlanClick(View view) {
+        Intent intent = new Intent(MainActivity.this, WorkoutPlan.class);
+        startActivity(intent);
+    }
+
 
     public void onClickPRStats(View view) {
         Intent intent = new Intent(MainActivity.this, StatsActivity.class);
