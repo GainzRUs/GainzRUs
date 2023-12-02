@@ -183,6 +183,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + EXERCISE_TABLE);
         db.execSQL("DELETE FROM " + SETS_TABLE);
+        db.execSQL("DELETE FROM " + WORKOUT_TABLE);
         db.execSQL("VACUUM");
     }
 

@@ -128,7 +128,7 @@ public class StatsActivity extends AppCompatActivity {
         Spinner spinner_menu = findViewById(R.id.spinner_menu);
 
         // Assuming these are the names of your activities or pages
-        String[] pageNames = {"Stats activity", "Profile", "Workout History", "Settings", "Add Exercise"};
+        String[] pageNames = {"Stats activity", "Profile", "Workout History", "Settings", "Add Exercise", "Workout plan"};
 
         // Find the Spinner view by its ID
         spinner_menu = findViewById(R.id.spinner_menu);
@@ -162,9 +162,14 @@ public class StatsActivity extends AppCompatActivity {
                         startActivity(option3Intent);
                         break;
                     case "Settings":
-                        // Navigate to Activity related to Option 3
+                        // Navigate to Activity related to Option 4
                         Intent option4Intent = new Intent(StatsActivity.this, Settings.class);
                         startActivity(option4Intent);
+                        break;
+                    case "Workout plan":
+                        // Navigate to Activity related to Option 5
+                        Intent option5Intent = new Intent(StatsActivity.this, WorkoutPlan.class);
+                        startActivity(option5Intent);
                         break;
                 }
             }

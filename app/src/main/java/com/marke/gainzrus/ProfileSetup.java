@@ -66,15 +66,14 @@ public class ProfileSetup extends AppCompatActivity {
                         Intent option3Intent = new Intent(ProfileSetup.this, AddExercise.class);
                         startActivity(option3Intent);
                         break;
-
                     case "Workout Plan":
                         // Navigate to Activity related to Option 4
                         Intent option4Intent = new Intent(ProfileSetup.this, WorkoutPlan.class);
-
+                        startActivity(option4Intent);
+                        break;
                     case "Settings":
                         // Navigate to Activity related to Option 5
                         Intent option5Intent = new Intent(ProfileSetup.this, Settings.class);
-
                         startActivity(option5Intent);
                         break;
                 }
