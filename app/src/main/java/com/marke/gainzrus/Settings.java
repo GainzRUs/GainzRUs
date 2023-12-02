@@ -23,8 +23,6 @@ public class Settings extends AppCompatActivity {
     private EditText userFeetText;
     private EditText userInchText;
     private TextView userBMIText;
-    private Switch musicSwitch;
-    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,21 +80,6 @@ public class Settings extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
                 // Handle scenario when nothing is selected (if needed)
             }
-        });
-
-        musicSwitch = findViewById(R.id.musicSwitch);
-        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-
-        boolean isMusicOn = sharedPreferences.getBoolean("musicState", true);
-        musicSwitch.setChecked(isMusicOn);
-
-        musicSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("musicState", isChecked);
-            editor.apply();
-
-            String toastMessage = isChecked ? "Music on" : "Music off";
-            Toast.makeText(Settings.this, toastMessage, Toast.LENGTH_SHORT).show();
         });
 
         findViews();

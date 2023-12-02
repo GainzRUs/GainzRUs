@@ -15,17 +15,6 @@
         android:background="@drawable/spinner_drawable"
         android:spinnerMode="dropdown" />
 
-    <Switch
-        android:id="@+id/musicSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="175dp"
-        android:checked="true"
-        android:switchPadding="120dp"
-        android:text="Music"
-        android:textSize="32dp" />
-
     <Button
         android:id="@+id/clear_data_button"
         android:layout_width="wrap_content"
