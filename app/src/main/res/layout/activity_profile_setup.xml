@@ -11,8 +11,8 @@
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         android:contentDescription="@string/backgroundImage"
-
         android:src="@drawable/profile_back" />
 
     <ImageView
