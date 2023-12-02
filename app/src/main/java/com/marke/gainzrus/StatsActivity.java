@@ -7,7 +7,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +29,13 @@ import nl.dionsegijn.konfetti.core.models.Size;
 import nl.dionsegijn.konfetti.xml.KonfettiView;
 
 public class StatsActivity extends AppCompatActivity {
+
+    private EditText userNameText;
+    private EditText userWeightText;
+    private EditText userFeetText;
+    private EditText userInchText;
+    private TextView userBMIText;
+
     @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,9 +123,71 @@ public class StatsActivity extends AppCompatActivity {
         benchText.setText(String.format("%.2f lb x %d", benchMax, benchReps));
         squatText.setText(String.format("%.2f lb x %d", squatMax, squatReps));
         deadliftText.setText(String.format("%.2f lb x %d", deadliftMax, deadliftReps));
+
+        // Find the Spinner view by its ID
+        Spinner spinner_menu = findViewById(R.id.spinner_menu);
+
+        // Assuming these are the names of your activities or pages
+        String[] pageNames = {"Stats activity", "Profile", "Workout History", "Settings", "Add Exercise"};
+
+        // Find the Spinner view by its ID
+        spinner_menu = findViewById(R.id.spinner_menu);
+
+        // Initialize the Spinner with page names
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_menu.setAdapter(adapter);
+
+        // Set listener for Spinner item selection
+        spinner_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+
+                // Perform actions based on the selected item
+                switch (selectedItem) {
+                    case "Profile":
+                        // Navigate to Activity related to Option 1
+                        Intent option1Intent = new Intent(StatsActivity.this, ProfileSetup.class);
+                        startActivity(option1Intent);
+                        break;
+                    case "Workout History":
+                        // Navigate to Activity related to Option 2
+                        Intent option2Intent = new Intent(StatsActivity.this, WorkoutHistory.class);
+                        startActivity(option2Intent);
+                        break;
+                    case "Add Exercise":
+                        // Navigate to Activity related to Option 3
+                        Intent option3Intent = new Intent(StatsActivity.this, AddExercise.class);
+                        startActivity(option3Intent);
+                        break;
+                    case "Settings":
+                        // Navigate to Activity related to Option 3
+                        Intent option4Intent = new Intent(StatsActivity.this, Settings.class);
+                        startActivity(option4Intent);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle scenario when nothing is selected (if needed)
+            }
+        });
+
+        findViews();
     }
 
-    public void onClickHomePage(View view){
+    // searches for/initializes values on profile screen
+    private void findViews() {
+        userNameText = findViewById(R.id.userValue);
+        userFeetText = findViewById(R.id.heightFeetValue);
+        userInchText = findViewById(R.id.heightInchValue);
+        userWeightText = findViewById(R.id.weightValue);
+        userBMIText = findViewById(R.id.bmiValue);
+    }
+
+    public void onClickHomePage(View view) {
         Intent intent = new Intent(StatsActivity.this, MainActivity.class);
         startActivity(intent);
     }

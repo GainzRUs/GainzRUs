@@ -19,12 +19,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="Gainz R Us"
         android:fontFamily="sans-serif-condensed-medium"
-        android:textStyle="bold"
+        android:text="Gainz R Us"
         android:textColor="#000"
         android:textSize="60sp"
-        />
+        android:textStyle="bold" />
 
 
     <TextView
@@ -70,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/pastWorkouts_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#fff"
         android:onClick="onAddExerciseClick"
         android:text="Log New Workout"
@@ -84,12 +83,26 @@
         android:id="@+id/pastWorkouts_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/generateWorkout_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#fff"
         android:onClick="onClickViewWorkout"
         android:text="View workout history"
+        android:textColor="#3944bc"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/generateWorkout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#fff"
+        android:onClick="onClickRandomWorkout"
+        android:text="Random workout"
         android:textColor="#3944bc"
         android:textSize="20sp"
         android:textStyle="bold" />
