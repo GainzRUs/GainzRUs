@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Gainz R Us</string>
-
     <string name="workouts">Menu</string>
     <string name="backgroundImage">ProfileBackground</string>
     <string name="defaultProfileImage">DefaultProfImage</string>

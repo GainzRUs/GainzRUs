@@ -41,6 +41,7 @@ public class WorkoutPlan extends AppCompatActivity {
         editTextWorkLength = findViewById(R.id.editTextWorkLength); // Add this line
 
 
+
         // Initialize views
         RadioGroup radioGroupLevels = findViewById(R.id.radioGroupLevels);
         Button buttonSelectPlan = findViewById(R.id.buttonSelectPlan);
