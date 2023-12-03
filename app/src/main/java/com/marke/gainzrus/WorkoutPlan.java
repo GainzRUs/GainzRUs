@@ -38,7 +38,7 @@ public class WorkoutPlan extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Workout Plans");
 
-        editTextWorkLength = findViewById(R.id.editTextWorkLength); // Add this line
+        editTextWorkLength = findViewById(R.id.editTextWorkLength);
 
 
         // Initialize views
@@ -54,8 +54,7 @@ public class WorkoutPlan extends AppCompatActivity {
             String workLengthText = editTextWorkLength.getText().toString().trim();
             if (!workLengthText.isEmpty()) {
                 workLength = Integer.parseInt(workLengthText);
-                // Now 'workLength' holds the user-entered work length value
-                // Use 'workLength' as needed in your code
+
             } else {
                 editTextWorkLength.setError("Please enter work length.");
             }
@@ -79,7 +78,6 @@ public class WorkoutPlan extends AppCompatActivity {
                             LinearLayout.LayoutParams.WRAP_CONTENT));
                     rowLayout.setOrientation(LinearLayout.VERTICAL);
 
-                    // Display the first three workouts of each plan
                     int count = 0;
                     for (String workout : workoutPlan) {
                         if (count < workLength) {
@@ -104,7 +102,6 @@ public class WorkoutPlan extends AppCompatActivity {
         });
         Spinner spinner_menu = findViewById(R.id.spinner_menu);
 
-        // Assuming these are the names of your activities or pages
         String[] pageNames = {"Workout Plan", "Workout History", "Stats Activity", "Add Exercise", "Profile", "Settings"};
 
         // Find the Spinner view by its ID
