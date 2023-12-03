@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8096A8B2">
+    android:background="#FFF">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="450dp"
+        android:contentDescription="@string/backgroundImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bracket_left" />
+
+    <ImageView
+        android:id="@+id/background2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="250dp"
+        android:layout_marginTop="450dp"
+        android:contentDescription="@string/backgroundImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bracket_right"
+        tools:ignore="ExtraText" />
 
 
     <!-- Rest of your ScrollView content -->
@@ -18,6 +40,9 @@
         android:layout_marginBottom="0dp">
 
 
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +52,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -51,6 +76,8 @@
                     android:layout_weight="1"
                     android:background="@drawable/spinner_drawable"
                     android:spinnerMode="dropdown" />
+
+
 
             </LinearLayout>
 
