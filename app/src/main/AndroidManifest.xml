@@ -21,6 +21,10 @@
             android:theme="@style/Theme.GainzRUs2"
             android:exported="false" />
         <activity
+            android:name=".RandomWorkout"
+            android:theme="@style/Theme.GainzRUs2"
+            android:exported="false" />
+        <activity
             android:name=".WorkoutHistory"
             android:theme="@style/Theme.GainzRUs2"
             android:exported="false" />
