@@ -60,7 +60,7 @@
                 <Button
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/homeicon2"
                     android:contentDescription="@string/BackButtonDesc"
@@ -71,8 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginEnd="77dp"
+                    android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_drawable"
                     android:spinnerMode="dropdown" />
