@@ -217,4 +217,9 @@ public class WorkoutPlan extends AppCompatActivity {
         }
         return "";
     }
+
+    public void onClickHomePage(View view) {
+        Intent intent = new Intent(WorkoutPlan.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
