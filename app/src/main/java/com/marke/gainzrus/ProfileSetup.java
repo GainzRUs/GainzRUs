@@ -33,7 +33,7 @@ public class ProfileSetup extends AppCompatActivity {
         Spinner spinner_menu = findViewById(R.id.spinner_menu);
 
         // Assuming these are the names of your activities or pages 
-        String[] pageNames = {"Profile", "Workout History", "Stats Activity","Add Exercise", "Workout Plan", "Settings"};
+        String[] pageNames = {"Profile", "Workout History", "Stats Activity","Add Exercise", "Workout Plan", "Settings", "Random workout"};
 
         // Find the Spinner view by its ID
         spinner_menu = findViewById(R.id.spinner_menu);
@@ -75,6 +75,10 @@ public class ProfileSetup extends AppCompatActivity {
                         // Navigate to Activity related to Option 5
                         Intent option5Intent = new Intent(ProfileSetup.this, Settings.class);
                         startActivity(option5Intent);
+                        break;
+                    case "Random workout":
+                        Intent option6Intent = new Intent(ProfileSetup.this, RandomWorkout.class);
+                        startActivity(option6Intent);
                         break;
                 }
             }
