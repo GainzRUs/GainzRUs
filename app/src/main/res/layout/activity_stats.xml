@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/stats_bg_image">
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Spinner
+        android:id="@+id/spinner_menu"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/spinner_drawable"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:id="@+id/statsHeader_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Your personal best:"
+        android:textColor="#fff"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/homeicon2"
+        android:contentDescription="@string/BackButtonDesc"
+        android:onClick="onClickHomePage" />
+
+    <TextView
+        android:id="@+id/benchMax_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statsHeader_text_view"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:shadowColor="#808080"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:text="Bench:"
+        android:textColor="#fff"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/benchValue_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statsHeader_text_view"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/benchMax_text_view"
+        android:text="0.00 lb"
+        android:textColor="#000"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/squatMax_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/benchMax_text_view"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"
+        android:shadowColor="#808080"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:text="Squat:"
+        android:textColor="#fff"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/squatValue_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/benchValue_text_view"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="80dp"
+        android:layout_toRightOf="@id/benchMax_text_view"
+        android:text="0.00 lb"
+        android:textColor="#000"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/deadliftMax_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/squatMax_text_view"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"
+        android:shadowColor="#808080"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:text="Deadlift:"
+        android:textColor="#fff"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/deadliftValue_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/squatValue_text_view"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="80dp"
+        android:layout_toRightOf="@id/benchMax_text_view"
+        android:text="0.00 lb"
+        android:textColor="#000"
+        android:textSize="32sp" />
+
+    <Button
+        android:id="@+id/konfetti_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#000"
+        android:text="Keep up the good work!"
+        android:textSize="16dp" />
+
+
+</RelativeLayout>

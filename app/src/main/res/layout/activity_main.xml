@@ -6,15 +6,23 @@
     android:layout_height="match_parent"
     android:background="#707d97">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back9"
+        android:scaleType="centerInside" />
+
     <TextView
+
         android:id="@+id/appTitle_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="Gainz RUs"
-        android:textColor="#3944bc"
-        android:textSize="32sp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Gainz R Us"
+        android:textColor="#000"
+        android:textSize="60sp"
         android:textStyle="bold" />
 
 
@@ -24,13 +32,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/appTitle_text_view"
         android:layout_centerInParent="true"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="100dp"
         android:ems="12"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Will not display when run."
         android:textColor="#000"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/date_text_view"
+        android:layout_centerInParent="true"
+        android:background="#fff" />
+
 
     <TextView
         android:id="@+id/workoutType_text_view"
@@ -39,6 +56,7 @@
         android:layout_below="@+id/date_text_view"
         android:layout_centerInParent="true"
         android:ems="12"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="Will not display when run."
         android:textColor="#000"
@@ -51,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/pastWorkouts_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#fff"
         android:onClick="onAddExerciseClick"
         android:text="Log New Workout"
@@ -65,12 +83,26 @@
         android:id="@+id/pastWorkouts_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/generateWorkout_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#fff"
         android:onClick="onClickViewWorkout"
         android:text="View workout history"
+        android:textColor="#3944bc"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/generateWorkout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#fff"
+        android:onClick="onClickRandomWorkout"
+        android:text="Random workout"
         android:textColor="#3944bc"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -81,19 +113,31 @@
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/ic_homepage_settings"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/stats_icon"
         android:contentDescription="Settings"
-        android:onClick="onClickSettings" />
+        android:onClick="onClickPRStats" />
 
     <ImageView
         android:id="@+id/button_user_profile"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/ic_homepage_user"
+        android:background="@drawable/profile_icon"
         android:contentDescription="ProfileSetup"
         android:onClick="onClickUserProfile" />
+
+    <ImageView
+        android:id="@+id/button_user_settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ic_homepage_settings"
+        android:contentDescription="Settings"
+        android:onClick="onClickUserSettings" />
 
 
 </RelativeLayout>

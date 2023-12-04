@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.content.Intent;
@@ -22,6 +23,7 @@ public class RandomWorkout extends AppCompatActivity {
     private final Map<String, String[]> workoutsByGroup = new HashMap<>();
     private TextView workoutTextView;
     private Spinner muscleGroupSpinner;
+    private EditText editTextNumberOfWorkouts;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -37,42 +39,57 @@ public class RandomWorkout extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         muscleGroupSpinner.setAdapter(adapter);
 
+        editTextNumberOfWorkouts = findViewById(R.id.editText_numberOfWorkouts);
+
         workoutTextView = findViewById(R.id.text_workout);
 
         Button generateButton = findViewById(R.id.button_generate);
         generateButton.setOnClickListener(view -> {
             String selectedGroup = muscleGroupSpinner.getSelectedItem().toString();
-            String workout = generateRandomWorkout(selectedGroup);
+            int numberOfWorkouts = parseWorkoutCount();
+            String workout = generateRandomWorkout(selectedGroup, numberOfWorkouts);
             workoutTextView.setText(workout);
         });
-
-        Button openLinkButton = findViewById(R.id.button_open_link);
-        openLinkButton.setOnClickListener(view -> openWebPage());
     }
 
     private void initializeWorkouts() {
         workoutsByGroup.put("Upper body", new String[]{
-                "10 Push-ups",
-                "5 Pull-ups",
-                "25 Overhead presses"
+                "25 Push-ups",
+                "10 Pull-ups",
+                "25 Overhead presses",
+                "12 Dumbbell bench presses",
+                "15 Dumbbell curls",
+                "15 Shoulder presses",
+                "20 Tricep kickbacks",
+                "12 Lat pulldowns",
+                "15 Dumbbell overhead shoulder press",
+                "10 Shrugs"
                 // Add more upper body workouts
         });
         workoutsByGroup.put("Lower body", new String[]{
-                "15 Squats",
+                "25 Squats",
                 "30 Lunges",
-                "50 Jumping jacks"
+                "50 Jumping jacks",
+                "30 Donkey kicks",
+                "30 Glute bridges",
+                "20 Reverse lunge front kicks",
+                "10 Bulgarian split squats",
+                "15 Leg extensions",
+                "15 Jump squats",
+                "15 Leg presses"
                 // Add more lower body workouts
         });
         workoutsByGroup.put("Core", new String[]{
                 "20 Sit-ups",
                 "30 Second plank",
                 "50 Crunches",
-                "20 Sit-ups",
+                "25 Leg lifts",
                 "20 High crunches",
                 "20 Second elbow plank",
                 "5 Back extensions",
                 "20 Sitting twists",
-                "20 Flutter kicks"
+                "20 Flutter kicks",
+                "25 Knee-to-elbow crunches"
                 // Add more core workouts
         });
         workoutsByGroup.put("Cardio", new String[]{
@@ -81,34 +98,70 @@ public class RandomWorkout extends AppCompatActivity {
                 "30 burpees",
                 "10 Lunge step-ups",
                 "10 Sprinter lunges",
-                ""
-
+                "20 Lunge step-ups",
+                "1 Minute mountain climber",
+                "50 Jumping jacks",
+                "30 Jump squats",
+                "1 Minute jump roping"
                 // Add more cardio workouts
         });
-        // Add other muscle groups if needed
+
+        workoutsByGroup.put("Stretching", new String[]{
+                "Neck stretch",
+                "Shoulder stretch",
+                "Arm and wrist stretch",
+                "Chest stretch",
+                "Side stretch",
+                "Hamstring stretch",
+                "Quad stretch",
+                "Calf stretch",
+                "Ankle stretch",
+                // Add more stretching workouts
+        });
+
+        workoutsByGroup.put("Yoga", new String[]{
+                "Downward Dog",
+                "Warrior I",
+                "Warrior II",
+                "Tree Pose",
+                "Child's Pose",
+                "Cobra Pose",
+                "Cat-Cow Stretch",
+                "Bridge Pose",
+                "Seated Forward Bend",
+                // Add more yoga poses
+        });
     }
 
     private String[] getMuscleGroups() {
-        return new String[] {"Upper body", "Lower body", "Core", "Cardio"};
+        return new String[]{"Upper body", "Lower body", "Core", "Cardio", "Stretching", "Yoga"};
     }
 
-    private String generateRandomWorkout(String muscleGroup) {
+    private int parseWorkoutCount() {
+        try {
+            return Integer.parseInt(editTextNumberOfWorkouts.getText().toString());
+        } catch (NumberFormatException e) {
+            return 5; // Default number if input is invalid
+        }
+    }
+
+    private String generateRandomWorkout(String muscleGroup, int numberOfWorkouts) {
         Random random = new Random();
         StringBuilder workoutsBuilder = new StringBuilder();
         String[] workouts = workoutsByGroup.get(muscleGroup);
         Set<String> chosenWorkouts = new HashSet<>();
 
         int workoutCount = 0;
-        while (workoutCount < 5) {
-            assert workouts != null;
+        assert workouts != null;
+        numberOfWorkouts = Math.min(numberOfWorkouts, workouts.length); // Ensure we don't exceed array length
+        while (workoutCount < numberOfWorkouts) {
             int index = random.nextInt(workouts.length);
             String workout = workouts[index];
-            // Check if the workout has already been chosen
             if (!chosenWorkouts.contains(workout)) {
                 chosenWorkouts.add(workout);
                 workoutsBuilder.append(workout);
                 workoutCount++;
-                if (workoutCount < 5) {
+                if (workoutCount < numberOfWorkouts) {
                     workoutsBuilder.append("\n");
                 }
             }
@@ -117,12 +170,4 @@ public class RandomWorkout extends AppCompatActivity {
         return workoutsBuilder.toString();
     }
 
-    @SuppressLint("QueryPermissionsNeeded")
-    private void openWebPage() {
-        Uri webpage = Uri.parse("https://www.youtube.com");
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
 }

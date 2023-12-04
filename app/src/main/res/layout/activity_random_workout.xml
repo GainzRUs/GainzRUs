@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#f0f0f0"
+    android:background="@drawable/gradient_background"
     android:gravity="center_horizontal">
 
     <!-- TextView for the title -->
@@ -28,13 +28,22 @@
         android:minHeight="48dp"
         tools:ignore="ExtraText" />
 
+    <!-- EditText for number of workouts -->
+    <EditText
+        android:id="@+id/editText_numberOfWorkouts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter number of workouts"
+        android:layout_marginBottom="16dp"/>
+
     <!-- Button to generate the workout -->
     <Button
         android:id="@+id/button_generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Generate Workout"
-        android:textColor="#81D4FA"
+        android:textColor="#81D4FB"
         tools:ignore="HardcodedText" />
 
     <!-- TextViews for the levels -->
@@ -60,11 +69,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Level 3: 4 Randomized sets"
+        android:text="Level 3: 5 Randomized sets"
         android:textSize="16sp"
         android:textColor="#000000"
-        android:fontFamily="sans-serif"
-        tools:ignore="HardcodedText" />
+        android:fontFamily="sans-serif" />
 
     <!-- TextView to display the generated workout -->
     <TextView
@@ -88,30 +96,6 @@
         android:textColor="#000000"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
-        tools:ignore="HardcodedText" />
-
-    <!-- TextView for the additional label -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Not sure what a certain workout is? Checkout our tutorial playlist!"
-        android:textSize="16sp"
-        android:textColor="#000000"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:layout_gravity="center_horizontal"
-        tools:ignore="HardcodedText" />
-
-    <!-- Button to open the link -->
-    <Button
-        android:id="@+id/button_open_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tutorial Playlist"
-        android:textColor="#81D4FB"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center_horizontal"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>

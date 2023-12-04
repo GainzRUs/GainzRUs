@@ -4,13 +4,21 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private MediaPlayer backgroundMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
+
+        backgroundMusic = MediaPlayer.create(MainActivity.this, R.raw.rocky);
+        backgroundMusic.setLooping(true);
+        backgroundMusic.start();
 
         Calendar calendar = Calendar.getInstance();
 
@@ -66,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
                         "Anything lost can be found again except for time wasted. A vision without action is merely a dream. —Kevin Gates",
                         "Those who say they can't and those who say they can are both usually right. —Henry Ford",
                         "I never dreamed about success. I worked for it. —Estée Lauder",
-                        "Success is getting what you want, happiness is wanting what you get. ―W. P. Kinsella"
+                        "Success is getting what you want, happiness is wanting what you get. ―W. P. Kinsella",
+                        "My mind is an enigma. - Patrick Star"
                 };
 
         // use random number to choose motivational quote and display it
@@ -93,8 +106,37 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickSettings(View view) {
-        Intent intent = new Intent(this, AppSettings.class);
+    public void onClickPRStats(View view) {
+        Intent intent = new Intent(MainActivity.this, StatsActivity.class);
         startActivity(intent);
+    }
+
+    public void onClickUserSettings(View view) {
+        Intent intent = new Intent(MainActivity.this, Settings.class);
+        startActivity(intent);
+    }
+
+    public void onClickRandomWorkout(View view) {
+        Intent intent = new Intent(MainActivity.this, RandomWorkout.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        backgroundMusic.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        backgroundMusic.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        backgroundMusic.stop();
+        backgroundMusic.release();
     }
 }

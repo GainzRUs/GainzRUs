@@ -6,4 +6,15 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+<<<<<<< HEAD
+        <option name="scale" value="0.5" />
+=======
+        <option name="scale" value="0.4" />
+>>>>>>> profileEdits
+      </ProjectState>
+    </option>
+  </component>
 </project>

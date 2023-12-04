@@ -1,29 +1,26 @@
 package com.marke.gainzrus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.StatusBarManager;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.widget.ArrayAdapter;
+import android.util.Log;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class WorkoutHistory extends AppCompatActivity {
 
-    List<String> monthList;
-    List<String> exerciseList;
-    Map<String, List<String>> exerciseCollection;
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
+    Map<String, List<WorkoutWithExercises>> exerciseCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,74 +29,82 @@ public class WorkoutHistory extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Workout History");
 
-        createMonthList();
-        createCollection();
+        // Fetch exercise data from the database
+        DataBaseHelper dbHelper = new DataBaseHelper(this);
+
+        // Log the results in JSON-like format
+        logWorkouts(dbHelper.getAllWorkoutsWithExercises());
+
+        List<WorkoutWithExercises> allWorkouts = dbHelper.getAllWorkoutsWithExercises();
+
+        // Organize workouts by day
+        exerciseCollection = organizeWorkoutsByDay(allWorkouts);
+
+        // Set up the ExpandableListView
         expandableListView = findViewById(R.id.expandable_list_view_workouts);
-        expandableListAdapter = new MonthlyExpandableListAdapter(this, monthList, exerciseCollection);
+        expandableListAdapter = new DailyExpandableListAdapter(this, new ArrayList<>(exerciseCollection.keySet()), exerciseCollection);
         expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int lastExpandedPosition = -1;
-            @Override
-            public void onGroupExpand(int i) {
-                if (lastExpandedPosition != -1 && i != lastExpandedPosition)
-                {
-                    expandableListView.collapseGroup(lastExpandedPosition);
-                }
-                lastExpandedPosition = i;
-            }
-        });
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener(){
-            @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                String selected = expandableListAdapter.getChild(i, i1).toString();
-                Toast.makeText(getApplicationContext(), "Selected: " + selected, Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
     }
 
-    private void createMonthList() {
-        monthList = new ArrayList<>();
-        monthList.add("January");
-        monthList.add("February");
-        monthList.add("March");
-        monthList.add("Arpil");
-        monthList.add("May");
-        monthList.add("June");
-    }
+    private Map<String, List<WorkoutWithExercises>> organizeWorkoutsByDay(List<WorkoutWithExercises> allWorkouts) {
+        Map<String, List<WorkoutWithExercises>> organizedCollection = new HashMap<>();
 
-    private void createCollection() {
-        String[] januaryWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] februaryWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] marchWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] aprilWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] mayWorkouts = {"Bench", "Squat", "Cardio"};
-        String[] juneWorkouts = {"Bench", "Squat", "Cardio"};
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
-        exerciseCollection = new HashMap<String, List<String>>();
+        for (WorkoutWithExercises workout : allWorkouts) {
+            // Extract date from the workout and use it as a key
+            String workoutDate = workout.getWorkoutDate(); // Modify this based on your WorkoutWithExercises object
 
-        for (String month : monthList) {
-            if (month.equals("January")) {
-                loadChild(januaryWorkouts);
-            } else if (month.equals("February")) {
-                loadChild(februaryWorkouts);
-            } else if (month.equals("March")) {
-                loadChild(marchWorkouts);
-            } else if (month.equals("Arpil")) {
-                loadChild(aprilWorkouts);
-            } else if (month.equals("May")) {
-                loadChild(mayWorkouts);
-            } else if (month.equals("june")) {
-                loadChild(juneWorkouts);
+            // Get the current date and workout date as Date objects
+            Date currentDate = new Date();
+            Date exerciseDate = null;
+            try {
+                exerciseDate = dateFormat.parse(workoutDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
-            exerciseCollection.put(month, exerciseList);
+
+            // Calculate the difference in days
+            long diffInMillies = Math.abs(currentDate.getTime() - exerciseDate.getTime());
+            long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+
+            // Determine the label for the date
+            String dateLabel;
+            if (diffInDays == 0) {
+                dateLabel = "Today";
+            } else if (diffInDays == 1) {
+                dateLabel = "Yesterday";
+            } else {
+                dateLabel = diffInDays + " days ago";
+            }
+
+            List<WorkoutWithExercises> workoutList = organizedCollection.get(dateLabel);
+            if (workoutList == null) {
+                workoutList = new ArrayList<>();
+            }
+
+            workoutList.add(workout);
+
+            // Update the map with the organized list
+            organizedCollection.put(dateLabel, workoutList);
         }
+
+        return organizedCollection;
     }
 
-    private void loadChild(String[] workouts) {
-        exerciseList = new ArrayList<>();
-        for (String workout : workouts) {
-            exerciseList.add(workout);
+
+
+
+
+    private void logWorkouts(List<WorkoutWithExercises> workouts) {
+        for (WorkoutWithExercises workout : workouts) {
+            Log.d("WorkoutHistory", "Workout: " + workout.getWorkoutDate() + ", Rating: " + workout.getWorkoutRating());
+            for (Exercise exercise : workout.getExercises()) {
+                Log.d("WorkoutHistory", "  Exercise: " + exercise.getExerciseName());
+                for (ExerciseSet set : exercise.getExerciseSets()) {
+                    Log.d("WorkoutHistory", "    Set: Reps=" + set.getNumberOfReps() + ", Weight=" + set.getWeight());
+                }
+            }
         }
     }
 }
