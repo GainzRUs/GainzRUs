@@ -29,6 +29,8 @@ public class RandomWorkout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_workout);
 
+        getSupportActionBar().setTitle("Random workout");
+
         initializeWorkouts();
 
         muscleGroupSpinner = findViewById(R.id.spinner_muscle_groups);

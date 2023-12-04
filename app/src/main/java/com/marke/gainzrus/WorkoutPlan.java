@@ -103,7 +103,7 @@ public class WorkoutPlan extends AppCompatActivity {
         });
         Spinner spinner_menu = findViewById(R.id.spinner_menu);
 
-        String[] pageNames = {"Workout Plan", "Workout History", "Stats Activity", "Add Exercise", "Profile", "Settings"};
+        String[] pageNames = {"Workout Plan", "Workout History", "Stats Activity", "Add Exercise", "Profile", "Settings", "Random workout"};
 
         // Find the Spinner view by its ID
         spinner_menu = findViewById(R.id.spinner_menu);
@@ -145,6 +145,10 @@ public class WorkoutPlan extends AppCompatActivity {
                         // Navigate to Activity related to Option 5
                         Intent option5Intent = new Intent(WorkoutPlan.this, Settings.class);
                         startActivity(option5Intent);
+                        break;
+                    case "Random workout":
+                        Intent option6Intent = new Intent(WorkoutPlan.this, RandomWorkout.class);
+                        startActivity(option6Intent);
                         break;
                 }
             }

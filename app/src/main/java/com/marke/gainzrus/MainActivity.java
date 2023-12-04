@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickRandomWorkout(View view) {
-        Intent intent = new Intent(MainActivity.this, Settings.class);
+        Intent intent = new Intent(MainActivity.this, RandomWorkout.class);
         startActivity(intent);
     }
 
