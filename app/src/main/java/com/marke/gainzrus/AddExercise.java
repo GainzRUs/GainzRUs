@@ -72,7 +72,7 @@ public class AddExercise extends AppCompatActivity {
         spinner_menu = findViewById(R.id.spinner_menu);
 
         // Assuming these are the names of your activities or pages
-        String[] pageNames = {"Add Exercise", "Workout History", "Stats Activity", "Profile", "Settings", "Workout plan"};
+        String[] pageNames = {"Add Exercise", "Workout History", "Stats Activity", "Profile", "Settings", "Workout plan", "Random workout"};
 
         // Initialize the Spinner with page names
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
@@ -106,6 +106,10 @@ public class AddExercise extends AppCompatActivity {
                     case "Workout plan":
                         Intent option5Intent = new Intent(AddExercise.this, WorkoutPlan.class);
                         startActivity(option5Intent);
+                        break;
+                    case "Random workout":
+                        Intent option6Intent = new Intent(AddExercise.this, RandomWorkout.class);
+                        startActivity(option6Intent);
                         break;
                 }
             }
