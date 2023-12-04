@@ -7,6 +7,29 @@
     android:background="#f0f0f0"
     android:gravity="center_horizontal">
 
+    <!-- Navigation Controls -->
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="-160dp"
+        android:background="@drawable/homeicon2"
+        android:onClick="onClickHomePage"
+        android:contentDescription="@string/BackButtonDesc"
+        />
+
+    <Spinner
+        android:id="@+id/spinner_menu"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/spinner_drawable"
+        android:spinnerMode="dropdown" />
+
+
     <!-- TextView for the title -->
     <TextView
         android:id="@+id/text_title"
@@ -15,7 +38,7 @@
         android:text="Random Workout Generator"
         android:textSize="24sp"
         android:textColor="#000000"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="17dp"
         android:fontFamily="sans-serif-medium"
         tools:ignore="HardcodedText" />
 

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Spinner;
 
 public class ProfileSetup extends AppCompatActivity {
-    User bodyBuilder = new User();
+    User bodyBuilder;
     private EditText userNameText;
     private EditText userWeightText;
     private EditText userFeetText;
@@ -124,7 +124,7 @@ public class ProfileSetup extends AppCompatActivity {
         userBMIText.setText(String.format("%.1f",BMI));
 
         // setting body builder values
-        bodyBuilder.setAll(userNameText.getText().toString(),
+        bodyBuilder = new User(userNameText.getText().toString(),
                 String.valueOf(Double.parseDouble(userFeetText.getText().toString())*12 +
                         Double.parseDouble((userInchText.getText().toString()))),
                 userWeightText.getText().toString(),

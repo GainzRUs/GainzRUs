@@ -1,9 +1,14 @@
 package com.marke.gainzrus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
@@ -44,6 +49,62 @@ public class WorkoutHistory extends AppCompatActivity {
         expandableListView = findViewById(R.id.expandable_list_view_workouts);
         expandableListAdapter = new DailyExpandableListAdapter(this, new ArrayList<>(exerciseCollection.keySet()), exerciseCollection);
         expandableListView.setAdapter(expandableListAdapter);
+
+        // Assuming these are the names of your activities or pages
+        String[] pageNames = {"Workout History", "Profile", "Random Workout", "Settings", "Add Exercise", "Workout plan", "Stats activity"};
+
+
+        Spinner spinner_menu = findViewById(R.id.spinner_menu);
+        // Initialize the Spinner with page names
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_menu.setAdapter(adapter);
+
+        // Set listener for Spinner item selection
+        spinner_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+
+                // Perform actions based on the selected item
+                switch (selectedItem) {
+                    case "Profile":
+                        // Navigate to Activity related to Option 1
+                        Intent option1Intent = new Intent(WorkoutHistory.this, ProfileSetup.class);
+                        startActivity(option1Intent);
+                        break;
+                    case "Stats activity":
+                        // Navigate to Activity related to Option 2
+                        Intent option2Intent = new Intent(WorkoutHistory.this, StatsActivity.class);
+                        startActivity(option2Intent);
+                        break;
+                    case "Add Exercise":
+                        // Navigate to Activity related to Option 3
+                        Intent option3Intent = new Intent(WorkoutHistory.this, AddExercise.class);
+                        startActivity(option3Intent);
+                        break;
+                    case "Settings":
+                        // Navigate to Activity related to Option 4
+                        Intent option4Intent = new Intent(WorkoutHistory.this, Settings.class);
+                        startActivity(option4Intent);
+                        break;
+                    case "Workout plan":
+                        // Navigate to Activity related to Option 5
+                        Intent option5Intent = new Intent(WorkoutHistory.this, WorkoutPlan.class);
+                        startActivity(option5Intent);
+                        break;
+                    case "Random Workout":
+                        Intent option6Intent = new Intent(WorkoutHistory.this, RandomWorkout.class);
+                        startActivity(option6Intent);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle scenario when nothing is selected (if needed)
+            }
+        });
     }
 
     private Map<String, List<WorkoutWithExercises>> organizeWorkoutsByDay(List<WorkoutWithExercises> allWorkouts) {
@@ -106,5 +167,10 @@ public class WorkoutHistory extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void onClickHomePage(View view) {
+        Intent intent = new Intent(WorkoutHistory.this, MainActivity.class);
+        startActivity(intent);
     }
 }
