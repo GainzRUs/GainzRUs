@@ -18,17 +18,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-import android.widget.AdapterView;
-import java.util.Objects;
 
-
-
-public abstract class RandomWorkout extends AppCompatActivity {
+public class RandomWorkout extends AppCompatActivity {
 
     private final Map<String, String[]> workoutsByGroup = new HashMap<>();
     private TextView workoutTextView;
     private Spinner muscleGroupSpinner;
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -57,46 +52,101 @@ public abstract class RandomWorkout extends AppCompatActivity {
 
         Button openLinkButton = findViewById(R.id.button_open_link);
         openLinkButton.setOnClickListener(view -> openWebPage());
+
+        // Assuming these are the names of your activities or pages
+        String[] pageNames = {"Random Workout", "Profile", "Workout History", "Settings", "Add Exercise", "Workout plan", "Stats activity"};
+
+        Spinner spinner_menu = findViewById(R.id.spinner_menu);
+        // Initialize the Spinner with page names
+        ArrayAdapter<String> nav_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
+        nav_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_menu.setAdapter(nav_adapter);
+
+        // Set listener for Spinner item selection
+        spinner_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+
+                // Perform actions based on the selected item
+                switch (selectedItem) {
+                    case "Profile":
+                        // Navigate to Activity related to Option 1
+                        Intent option1Intent = new Intent(RandomWorkout.this, ProfileSetup.class);
+                        startActivity(option1Intent);
+                        break;
+                    case "Stats activity":
+                        // Navigate to Activity related to Option 2
+                        Intent option2Intent = new Intent(RandomWorkout.this, StatsActivity.class);
+                        startActivity(option2Intent);
+                        break;
+                    case "Add Exercise":
+                        // Navigate to Activity related to Option 3
+                        Intent option3Intent = new Intent(RandomWorkout.this, AddExercise.class);
+                        startActivity(option3Intent);
+                        break;
+                    case "Settings":
+                        // Navigate to Activity related to Option 4
+                        Intent option4Intent = new Intent(RandomWorkout.this, Settings.class);
+                        startActivity(option4Intent);
+                        break;
+                    case "Workout plan":
+                        // Navigate to Activity related to Option 5
+                        Intent option5Intent = new Intent(RandomWorkout.this, WorkoutPlan.class);
+                        startActivity(option5Intent);
+                        break;
+                    case "Workout History":
+                        Intent option6Intent = new Intent(RandomWorkout.this, WorkoutHistory.class);
+                        startActivity(option6Intent);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle scenario when nothing is selected (if needed)
+            }
+        });
     }
 
     private void initializeWorkouts() {
         workoutsByGroup.put("Upper body", new String[]{
-                "10 Push-ups",
-                "5 Pull-ups",
-                "25 Overhead presses",
-                "15 ",
-                "a",
-                ""
+                "3x10 Push-ups",
+                "4x5 Pull-ups",
+                "2x25 Overhead Press",
+                "3x10 Dips",
+                "3x12 Bicep Curls",
+                "4x8 Chest Fly"
                 // Add more upper body workouts
         });
         workoutsByGroup.put("Lower body", new String[]{
-                "15 Squats",
-                "30 Lunges",
-                "50 Jumping jacks",
-                "a",
-                "a",
-                ""
+                "3x15 Squats",
+                "2x30 Lunges",
+                "50 Jumping Jacks",
+                "3x15 Leg Extensions",
+                "3x12 Hamstring Curls",
+                "3x10 Calf Raises"
                 // Add more lower body workouts
         });
         workoutsByGroup.put("Core", new String[]{
-                "20 Sit-ups",
-                "30 Second plank",
+                "2x20 Sit-ups",
+                "30-Second Plank",
                 "50 Crunches",
-                "20 Sit-ups",
-                "20 High crunches",
-                "20 Second elbow plank",
-                "5 Back extensions",
-                "20 Sitting twists",
-                "20 Flutter kicks"
+                "3x20 Sit-ups",
+                "3x20 High Crunches",
+                "20-Second Elbow Plank",
+                "3x5 Back Extensions",
+                "2x20 Sitting Twists",
+                "2x20 Flutter Kicks"
                 // Add more core workouts
         });
         workoutsByGroup.put("Cardio", new String[]{
-                "60 second running in place",
-                "50 high knees",
-                "30 burpees",
-                "10 Lunge step-ups",
-                "10 Sprinter lunges",
-                ""
+                "60-Second Running in Place",
+                "50 High Knees",
+                "30 Burpees",
+                "2x10 Lunge Step-ups",
+                "2x10 Sprinter Lunges",
+                "30-Minute Inclined Walk"
 
                 // Add more cardio workouts
         });
@@ -141,4 +191,8 @@ public abstract class RandomWorkout extends AppCompatActivity {
         }
     }
 
+    public void onClickHomePage(View view) {
+        Intent intent = new Intent(RandomWorkout.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

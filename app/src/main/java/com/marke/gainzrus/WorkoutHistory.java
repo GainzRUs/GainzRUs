@@ -56,9 +56,9 @@ public class WorkoutHistory extends AppCompatActivity {
 
         Spinner spinner_menu = findViewById(R.id.spinner_menu);
         // Initialize the Spinner with page names
-        ArrayAdapter<String> nav_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
-        nav_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_menu.setAdapter(nav_adapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_menu.setAdapter(adapter);
 
         // Set listener for Spinner item selection
         spinner_menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
