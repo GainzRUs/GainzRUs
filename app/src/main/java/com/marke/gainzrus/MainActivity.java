@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // use random number to choose motivational quote and display it
         Random random = new Random();
         int randomIndex = random.nextInt(9);
-        String quoteMessage = motivationalQuotes[randomIndex];
+        String quoteMessage = motivationalQuotes[9];
         TextView quote = findViewById(R.id.workoutType_text_view);
         quote.setText(quoteMessage);
     }
