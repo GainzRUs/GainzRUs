@@ -5,6 +5,27 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <Button
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="-160dp"
+    android:background="@drawable/homeicon2"
+    android:onClick="onClickHomePage"
+    android:contentDescription="@string/BackButtonDesc"
+    />
+
+    <Spinner
+        android:id="@+id/spinner_menu"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/spinner_drawable"
+        android:spinnerMode="dropdown" />
+
     <ExpandableListView
         android:id="@+id/expandable_list_view_workouts"
         android:layout_width="match_parent"

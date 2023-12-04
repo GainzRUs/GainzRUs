@@ -2,6 +2,8 @@ package com.marke.gainzrus;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -16,12 +18,17 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import android.widget.AdapterView;
+import java.util.Objects;
 
-public class RandomWorkout extends AppCompatActivity {
+
+
+public abstract class RandomWorkout extends AppCompatActivity {
 
     private final Map<String, String[]> workoutsByGroup = new HashMap<>();
     private TextView workoutTextView;
     private Spinner muscleGroupSpinner;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -56,13 +63,19 @@ public class RandomWorkout extends AppCompatActivity {
         workoutsByGroup.put("Upper body", new String[]{
                 "10 Push-ups",
                 "5 Pull-ups",
-                "25 Overhead presses"
+                "25 Overhead presses",
+                "15 ",
+                "a",
+                ""
                 // Add more upper body workouts
         });
         workoutsByGroup.put("Lower body", new String[]{
                 "15 Squats",
                 "30 Lunges",
-                "50 Jumping jacks"
+                "50 Jumping jacks",
+                "a",
+                "a",
+                ""
                 // Add more lower body workouts
         });
         workoutsByGroup.put("Core", new String[]{
@@ -127,4 +140,5 @@ public class RandomWorkout extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
 }

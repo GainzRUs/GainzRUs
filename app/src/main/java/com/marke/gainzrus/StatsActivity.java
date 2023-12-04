@@ -13,9 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -130,8 +128,6 @@ public class StatsActivity extends AppCompatActivity {
         // Assuming these are the names of your activities or pages
         String[] pageNames = {"Stats activity", "Profile", "Workout History", "Settings", "Add Exercise", "Workout plan", "Random workout"};
 
-        // Find the Spinner view by its ID
-        spinner_menu = findViewById(R.id.spinner_menu);
 
         // Initialize the Spinner with page names
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageNames);
