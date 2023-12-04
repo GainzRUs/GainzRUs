@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Gainz R Us</string>
-
     <string name="workouts">Menu</string>
     <string name="backgroundImage">ProfileBackground</string>
     <string name="defaultProfileImage">DefaultProfImage</string>
@@ -17,6 +16,9 @@
     <string name="BackButtonDesc" >Back Button</string>
     <string name="BMILabel" >BMI:</string>
     <string name="DoneButton" >Done</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
+    <string name="WorkoutPlanBack">String</string>
 
     <string-array name="dropdown_options_array">
         <item>StatsActivity</item>

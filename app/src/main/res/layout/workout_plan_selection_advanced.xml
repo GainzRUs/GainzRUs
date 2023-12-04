@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="450dp"
+        android:contentDescription="@string/backgroundImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bracket_left" />
+
+    <ImageView
+        android:id="@+id/background2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="250dp"
+        android:layout_marginTop="450dp"
+        android:contentDescription="@string/backgroundImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bracket_right"
+        tools:ignore="ExtraText" />
+
+
+    <!-- Rest of your ScrollView content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp">
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Button -->
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/homeicon2"
+                    android:contentDescription="@string/BackButtonDesc"
+                    android:onClick="onClickHomePage" />
+                <!-- Spinner -->
+                <Spinner
+                    android:id="@+id/spinner_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/spinner_drawable"
+                    android:spinnerMode="dropdown" />
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="16dp"
+                android:text="Workout Plan Level"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupLevels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButtonBeginner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Beginner"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonIntermediate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Intermediate"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonAdvanced"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Advanced"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/spinnerWorkouts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/editTextWorkLength"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:hint="Enter Workout length"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/buttonSelectPlan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="Select Workout" />
+
+            <TextView
+                android:id="@+id/textViewSelectedPlan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="Selected Workout Plan: None"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:id="@+id/plansContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

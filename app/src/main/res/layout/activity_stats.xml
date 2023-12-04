@@ -13,9 +13,10 @@
 
     <Spinner
         android:id="@+id/spinner_menu"
-        android:layout_width="200dp"
+        android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/spinner_drawable"
         android:spinnerMode="dropdown" />
