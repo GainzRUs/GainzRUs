@@ -21,12 +21,14 @@ public class ProfileSetup extends AppCompatActivity {
     private EditText userFeetText;
     private EditText userInchText;
     private TextView userBMIText;
+    boolean createdUser = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_setup);
 
+        findViews();
         getSupportActionBar().setTitle("Profile");
 
         // Find the Spinner view by its ID
@@ -103,14 +105,13 @@ public class ProfileSetup extends AppCompatActivity {
     }
 
     // calculates and returns BMI
-    private double findBMI(EditText feet, EditText inch, EditText w){
+    private double findBMI(String feet, String inch, String w){
         // conversion in pounds
         double height, weight;
         // converting feet to inches; adding total inches
-        height = Double.parseDouble(inch.getText().toString()) +
-                (Double.parseDouble(feet.getText().toString()) * 12);
+        height = Double.parseDouble(inch) + (Double.parseDouble(feet) * 12);
         // getting height
-        weight = Double.parseDouble(w.getText().toString());
+        weight = Double.parseDouble(w);
         // returning BMI
         return (weight/Math.pow(height,2))*703;
 
@@ -119,21 +120,34 @@ public class ProfileSetup extends AppCompatActivity {
     // sets user(bodyBuilder) values
     public void onClickAddUser(View view) {
 
-        // calculate BMI
-        double BMI = findBMI(userFeetText, userInchText, userWeightText);
-        userBMIText.setText(String.format("%.1f",BMI));
+        findViews();
+        String username = userNameText.getText().toString();
+        String feet = userFeetText.getText().toString();
+        String inches = userInchText.getText().toString();
+        String weight = userWeightText.getText().toString();
 
-        // setting body builder values
-        bodyBuilder = new User(userNameText.getText().toString(),
-                String.valueOf(Double.parseDouble(userFeetText.getText().toString())*12 +
-                        Double.parseDouble((userInchText.getText().toString()))),
-                userWeightText.getText().toString(),
-                userBMIText.getText().toString());
+        if(username.equals("") || feet.equals("") || inches.equals("") || weight.equals("")) {
+            makeText(this, "Missing required information", LENGTH_SHORT).show();
+        }
+        else {
+            // calculate BMI
+            double BMI = findBMI(feet, inches, weight);
+            userBMIText.setText(String.format("%.1f", BMI));
+            String bmiS = userBMIText.getText().toString();
+            String height = String.valueOf(Double.parseDouble(feet) * 12 + Double.parseDouble((inches)));
 
-
-        // notification of profile saved
-        makeText(this, "User " + bodyBuilder.getUserName() + " saved", LENGTH_SHORT).show();
-
+            if(!createdUser){
+                // setting body builder values
+                bodyBuilder = new User(username, height, weight, bmiS);
+                makeText(this, "User " + bodyBuilder.getUserName() + " saved", LENGTH_SHORT).show();
+                createdUser = true;
+            }
+            else{
+                bodyBuilder.setAll(username, height, weight, bmiS);
+                makeText(this, "User " + bodyBuilder.getUserName() + " saved", LENGTH_SHORT).show();
+                createdUser = true;
+            }
+        }
         findViews();
     }
 

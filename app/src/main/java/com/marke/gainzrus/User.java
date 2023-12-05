@@ -58,6 +58,7 @@ public class User {
                 setUserHeight(weight);
                 setUserBMI(BMI);
         }
+
 }
 
 
