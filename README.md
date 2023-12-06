@@ -20,8 +20,10 @@ When first opening the **GainzRUs** app, you will be greeted with the *Home* pag
   - Button @ Top-Right of *Home* Page
 - *PR Statistics* Page
   - Button @ Bottom-Left of *Home* Page
-- *Workout Routine* Page
-  - TBD
+- *Workout Plane* Page
+  - Button @ Center of *Home* Page
+- *Random Workout* Page
+  - Button @ Center of *Home* Page
  
 Each Page has it's own functionality/use:
 - *Profile Setup* Page:
@@ -37,15 +39,19 @@ Each Page has it's own functionality/use:
   - Allows user to erase all saved workout data from the application.
   - One button erases all application data.
 - *PR Statistics* Page:
-  - Allows a user to see their best working set for a given lift (i.e. bench, squat, deadlift).
+  - Allows user to see their best working set for a given lift (i.e. bench, squat, deadlift).
   - Searches from previously saved workout data and pulls the highest weighted set with the most reps.
-- *Workout Routine* Page:
-  - TBD
+- *Workout Plan* Page:
+  - Allows user to generate a workout plan based on intensity (i.e. beginner, intermediate, advanced)
+  - Radio buttons allow the user to select their workout difficulty.
+- *Random Workout* Page
+  - Allows user to generate a random workout based on muscle group (i.e. upper body, lower body, etc)
+  - EditText used to select desired number of workouts.
 
 
 ## Credits
-- Steven Dew: *Add Workouts* Page and *View Workouts* Page + Database Development
-- Ayman Boules: *Profile Setup* Page Development
-- Mark Eskander: *Home* Page, *Settings* Page, and *PR Statistics* Page Development
-- Angel Vazquez: *Profile Setup* Page + User class Development
-- Michael Steele: *Wrokout Rndomizer* Page Development
+- Steven Dew
+- Ayman Boules
+- Mark Eskander
+- Angel Vazquez
+- Michael Steele
